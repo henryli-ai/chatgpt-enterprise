@@ -3,833 +3,1086 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ChatGPT Enterprise 企業級 AI 導入完整方案 - TPIsoftware OpenAI 官方合作夥伴">
-    <title>ChatGPT Enterprise 企業導入方案 | TPIsoftware</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>ChatGPT Enterprise 企業導入簡報｜TPIsoftware</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #662E8D;
+            --primary-light: #7C4DB3;
+            --primary-lighter: #A68BE0;
+            --primary-pale: #D5CFFA;
+            --secondary: #8D98B1;
+            --dark: #252B3E;
+            --success: #28a745;
+            --warning: #dc3545;
+            --info: #17a2b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 15px 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-section .logo-box {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        .logo-section img {
+            height: 45px;
+            max-width: 180px;
+            object-fit: contain;
+        }
+
+        .header-title {
+            flex: 1;
+            text-align: center;
+        }
+
+        .header-title h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .header-title p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            page-break-inside: avoid;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary);
+            page-break-after: avoid;
+        }
+
+        .page-number {
+            background: var(--primary);
+            color: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .question-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, #f0edfa 100%);
+            border-left: 4px solid var(--primary);
+            padding: 14px 16px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            page-break-inside: avoid;
+        }
+
+        .question-icon {
+            font-size: 28px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .question-text {
+            font-size: 17px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 19px;
+            color: var(--primary);
+            margin: 18px 0 12px 0;
+            font-weight: bold;
+            page-break-after: avoid;
+        }
+
+        h4 {
+            font-size: 16px;
+            color: var(--dark);
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+            page-break-after: avoid;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            padding: 6px 0 6px 28px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .bullet-list li:before {
+            content: "▸";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+
+        .card {
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+
+        .card-emphasis {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, #f5f3ff 100%);
+            border-left: 5px solid var(--primary);
+        }
+
+        .card-success {
+            background: #d4edda;
+            border-left: 5px solid var(--success);
+        }
+
+        .card-warning {
+            background: #f8d7da;
+            border-left: 5px solid var(--warning);
+        }
+
+        .card-info {
+            background: #d1ecf1;
+            border-left: 5px solid var(--info);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            page-break-inside: avoid;
+            font-size: 14px;
+        }
+
+        table th {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        table td {
+            padding: 9px 12px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        table tr:hover {
+            background: var(--primary-pale);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 18px 0;
+            padding: 18px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            page-break-inside: avoid;
+        }
+
+        .flow-box {
+            background: white;
+            padding: 14px 18px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            font-weight: bold;
+            color: var(--primary);
+            text-align: center;
+            flex: 1;
+            border: 2px solid var(--primary);
+            font-size: 14px;
+        }
+
+        .flow-arrow {
+            font-size: 20px;
+            color: var(--primary);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .numbered-steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .numbered-steps li {
+            counter-increment: step-counter;
+            padding: 8px 0 8px 42px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .numbered-steps li:before {
+            content: counter(step-counter);
+            background: var(--primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            top: 6px;
+            font-size: 14px;
+        }
+
+        .timeline {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            padding: 18px;
+            border-radius: 8px;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 14px 16px;
+            margin: 12px 0;
+            border-left: 4px solid var(--primary);
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            page-break-inside: avoid;
+        }
+
+        .timeline-item h4 {
+            margin-top: 0;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .timeline-item p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .highlight-text {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, transparent 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .key-point {
+            background: var(--primary);
+            color: white;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin: 18px 0;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(102, 46, 141, 0.25);
+            page-break-inside: avoid;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 10px;
+            page-break-before: avoid;
+        }
+
+        footer p {
+            margin: 4px 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: var(--primary-lighter);
+            margin-top: 8px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            @page {
+                size: A4;
+                margin: 1cm 1.2cm;
+            }
+
+            .container {
+                padding: 0;
+            }
+
+            .section {
+                page-break-inside: auto;
+                margin-bottom: 15px;
+                box-shadow: none;
+                padding: 20px 25px;
+                border: 1px solid #e0e0e0;
+            }
+
+            header {
+                padding: 12px 20px;
+                margin-bottom: 15px;
+            }
+
+            .header-title h1 {
+                font-size: 24px;
+            }
+
+            .header-title p {
+                font-size: 12px;
+            }
+
+            .section-header {
+                margin-bottom: 12px;
+                padding-bottom: 8px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .page-number {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+
+            h3 {
+                font-size: 16px;
+                margin: 12px 0 8px 0;
+            }
+
+            h4 {
+                font-size: 14px;
+                margin: 10px 0 6px 0;
+            }
+
+            .question-box {
+                padding: 10px 12px;
+                margin-bottom: 12px;
+            }
+
+            .question-text {
+                font-size: 15px;
+            }
+
+            .question-icon {
+                font-size: 24px;
+            }
+
+            .bullet-list li,
+            .numbered-steps li {
+                padding: 4px 0 4px 28px;
+                font-size: 13px;
+            }
+
+            .card {
+                padding: 10px 12px;
+                margin: 10px 0;
+                page-break-inside: avoid;
+            }
+
+            .card-title {
+                font-size: 14px;
+                margin-bottom: 6px;
+            }
+
+            table {
+                font-size: 12px;
+                margin: 10px 0;
+                page-break-inside: avoid;
+            }
+
+            table th {
+                padding: 8px 10px;
+                font-size: 13px;
+            }
+
+            table td {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .timeline {
+                padding: 12px;
+                margin: 10px 0;
+                page-break-inside: avoid;
+            }
+
+            .timeline-item {
+                padding: 10px 12px;
+                margin: 8px 0;
+                page-break-inside: avoid;
+            }
+
+            .timeline-item h4 {
+                font-size: 13px;
+            }
+
+            .timeline-item p {
+                font-size: 12px;
+            }
+
+            .flow-diagram {
+                padding: 12px;
+                margin: 12px 0;
+                page-break-inside: avoid;
+            }
+
+            .flow-box {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+
+            .key-point {
+                padding: 10px 14px;
+                font-size: 14px;
+                margin: 12px 0;
+                page-break-inside: avoid;
+            }
+
+            .two-column,
+            .three-column {
+                gap: 10px;
+                margin: 10px 0;
+            }
+
+            footer {
+                padding: 15px;
+                margin-top: 20px;
+                page-break-before: avoid;
+            }
+
+            footer p {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- 導航列 -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <img src="images/tpi-logo.png" alt="TPIsoftware Logo" class="logo">
-                <button class="mobile-menu-btn" aria-label="選單">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu">
-                    <li><a href="#why">為什麼</a></li>
-                    <li><a href="#what">是什麼</a></li>
-                    <li><a href="#difference">差異</a></li>
-                    <li><a href="#process">導入流程</a></li>
-                    <li><a href="#cost">投資規模</a></li>
-                    <li><a href="#contact" class="btn-primary-nav">聯繫我們</a></li>
-                </ul>
-            </div>
+    <header>
+        <div class="logo-section">
+            <div class="logo-box">TPIsoftware</div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="title-main">ChatGPT Enterprise</span>
-                    <span class="title-sub">企業級 AI 導入完整方案</span>
-                </h1>
-                <p class="hero-description">從治理到落地，協助企業成功建立 AI 能力</p>
-                <div class="hero-badge">
-                    <span>TPIsoftware | OpenAI 官方合作夥伴</span>
-                </div>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">預約諮詢</a>
-                    <a href="#why" class="btn btn-secondary">了解更多</a>
-                </div>
-            </div>
+        <div class="header-title">
+            <h1>ChatGPT Enterprise 企業導入簡報</h1>
+            <p>Your AI Partner for Mission-Critical Success</p>
         </div>
-        <div class="hero-bg"></div>
-    </section>
+    </header>
 
-    <!-- 簡報大綱 -->
-    <section class="outline">
-        <div class="container">
-            <h2 class="section-title">簡報大綱</h2>
-            <div class="outline-grid">
-                <div class="outline-card">
-                    <div class="outline-number">01</div>
-                    <h3>為什麼現在討論 AI 平台？</h3>
-                    <p>企業 AI 的現況與挑戰</p>
-                </div>
-                <div class="outline-card">
-                    <div class="outline-number">02</div>
-                    <h3>什麼是 ChatGPT Enterprise？</h3>
-                    <p>產品定位與核心價值</p>
-                </div>
-                <div class="outline-card">
-                    <div class="outline-number">03</div>
-                    <h3>與其他方案的差異</h3>
-                    <p>競品比較分析</p>
-                </div>
-                <div class="outline-card">
-                    <div class="outline-number">04</div>
-                    <h3>導入流程與時程</h3>
-                    <p>三階段實施計劃</p>
-                </div>
-                <div class="outline-card">
-                    <div class="outline-number">05</div>
-                    <h3>投資規模與效益</h3>
-                    <p>成本與價值分析</p>
-                </div>
-                <div class="outline-card">
-                    <div class="outline-number">06</div>
-                    <h3>TPIsoftware 的角色</h3>
-                    <p>我們如何協助您</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 第1頁：為什麼 -->
-    <section id="why" class="section-why">
-        <div class="container">
+    <div class="container">
+        <!-- 第 1 頁 -->
+        <div class="section">
             <div class="section-header">
-                <span class="section-number">第 1 頁</span>
+                <div class="page-number">1</div>
                 <h2 class="section-title">我們為什麼要正式討論 AI 平台？</h2>
             </div>
 
             <div class="question-box">
-                <div class="question-icon">💬</div>
-                <div class="question-content">
-                    <h3>企業會問：</h3>
-                    <p>「我們現在真的需要 Enterprise 等級嗎？」</p>
-                </div>
+                <div class="question-icon">💭</div>
+                <div class="question-text">「我們現在真的需要 Enterprise 等級嗎？」</div>
             </div>
 
-            <h3 class="subsection-title">市場與企業內部的真實情況</h3>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">✅</div>
-                    <h4>員工已大量使用生成式 AI</h4>
-                    <p>根據調查，超過 70% 員工已在工作中使用 AI 工具</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">✅</div>
-                    <h4>多數企業處於無治理狀態</h4>
-                    <p>缺乏統一政策、資料安全風險、無使用追蹤</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">✅</div>
-                    <h4>AI 已從工具變成基礎能力</h4>
-                    <p>如同 Office、Email，AI 正成為職場標準配備</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">✅</div>
-                    <h4>問題不是要不要用，而是如何正式導入</h4>
-                    <p>從失控到可控，從分散到整合</p>
-                </div>
-            </div>
+            <ul class="bullet-list">
+                <li>員工已大量使用生成式 AI</li>
+                <li>多數企業處於無治理狀態</li>
+                <li>AI 已從工具變成基礎能力</li>
+                <li>問題不是要不要用，而是如何正式導入</li>
+            </ul>
 
-            <div class="stages">
-                <h3 class="subsection-title">AI 導入的三個階段</h3>
-                <div class="stages-container">
-                    <div class="stage-item">
-                        <div class="stage-icon">🙋</div>
-                        <h4>個人使用</h4>
-                        <p>員工自行註冊<br>無管理控制</p>
-                    </div>
-                    <div class="stage-arrow">→</div>
-                    <div class="stage-item">
-                        <div class="stage-icon">👥</div>
-                        <h4>部門嘗試</h4>
-                        <p>小規模試點<br>部分管理</p>
-                    </div>
-                    <div class="stage-arrow">→</div>
-                    <div class="stage-item stage-highlight">
-                        <div class="stage-icon">🏢</div>
-                        <h4>企業級治理</h4>
-                        <p>統一平台<br>完整控管</p>
-                    </div>
-                </div>
-                <div class="stage-callout">
-                    <div class="callout-icon">📍</div>
-                    <div class="callout-content">
-                        <h4>您的企業現在在哪個階段？</h4>
-                        <p>大多數企業正處於「個人使用」與「部門嘗試」之間<br>現在是建立「企業級治理」的關鍵時刻</p>
-                    </div>
-                </div>
+            <div class="flow-diagram">
+                <div class="flow-box">個人使用</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box">部門嘗試</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box" style="background: var(--primary); color: white;">企業級治理<br><small>（現在的位置）</small></div>
             </div>
         </div>
-    </section>
 
-    <!-- 第2頁：什麼是 ChatGPT Enterprise -->
-    <section id="what" class="section-what">
-        <div class="container">
+        <!-- 第 2 頁 -->
+        <div class="section">
             <div class="section-header">
-                <span class="section-number">第 2 頁</span>
+                <div class="page-number">2</div>
                 <h2 class="section-title">什麼是 ChatGPT Enterprise？</h2>
             </div>
 
             <div class="question-box">
-                <div class="question-icon">💬</div>
-                <div class="question-content">
-                    <h3>企業會問：</h3>
-                    <p>「它到底是什麼？跟我現在用的有什麼不同？」</p>
-                </div>
+                <div class="question-icon">💭</div>
+                <div class="question-text">「它到底是什麼？跟我現在用的有什麼不同？」</div>
             </div>
 
-            <div class="two-column-grid">
-                <div class="column-card">
-                    <div class="card-icon">🏢</div>
-                    <h3>企業級 AI 工作平台</h3>
-                    <p class="card-subtitle">不是個人帳號升級，是企業 AI 基礎設施</p>
-                    <ul class="feature-list">
-                        <li>企業級 AI 工作平台</li>
-                        <li>可集中管理帳號</li>
-                        <li>可控管資料</li>
-                        <li>支援大規模使用</li>
-                        <li>支援 API 整合</li>
-                    </ul>
-                </div>
-                <div class="column-card">
-                    <div class="card-icon">💡</div>
-                    <h3>核心價值主張</h3>
-                    <p class="card-subtitle">為企業量身打造的 AI 解決方案</p>
-                    <ul class="value-list">
-                        <li>
-                            <span class="value-icon">🔐</span>
-                            <strong>可治理</strong> - 完整的管理與監控
-                        </li>
-                        <li>
-                            <span class="value-icon">📈</span>
-                            <strong>可放大</strong> - 支援全企業規模
-                        </li>
-                        <li>
-                            <span class="value-icon">🔄</span>
-                            <strong>可長期經營</strong> - 持續升級與支援
-                        </li>
-                        <li>
-                            <span class="value-icon">🛡️</span>
-                            <strong>可信賴</strong> - 企業級安全與合規
-                        </li>
-                    </ul>
-                </div>
+            <ul class="bullet-list">
+                <li>企業級 AI 工作平台</li>
+                <li>可集中管理帳號</li>
+                <li>可控管資料</li>
+                <li>支援大規模使用</li>
+                <li>支援 API 整合</li>
+            </ul>
+
+            <div class="key-point">
+                它是企業的 AI 基礎設施，不是個人帳號升級。
             </div>
 
-            <div class="architecture">
-                <h3 class="subsection-title">平台架構</h3>
-                <div class="architecture-layers">
-                    <div class="layer">
-                        <div class="layer-icon">👥</div>
-                        <h4>使用者層</h4>
-                        <p>員工介面 • 管理後台 • API 整合 • 自訂 GPTs</p>
-                    </div>
-                    <div class="layer">
-                        <div class="layer-icon">🎛️</div>
-                        <h4>管理層</h4>
-                        <p>SSO 整合 • 權限控制 • 使用分析 • 審計日誌</p>
-                    </div>
-                    <div class="layer">
-                        <div class="layer-icon">🔒</div>
-                        <h4>安全層</h4>
-                        <p>數據加密 • 隱私保護 • 合規認證 • 存取控制</p>
-                    </div>
-                    <div class="layer">
-                        <div class="layer-icon">🤖</div>
-                        <h4>模型層</h4>
-                        <p>GPT-4o • GPT-4 • DALL-E 3 • 持續升級</p>
-                    </div>
-                </div>
-                <div class="architecture-note">
-                    <strong>它是企業的 AI 基礎設施，不是個人帳號升級</strong>
-                </div>
+            <h3>平台架構圖：</h3>
+            <div class="flow-diagram">
+                <div class="flow-box">使用者</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box">管理層</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box">安全層</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box">模型層</div>
             </div>
         </div>
-    </section>
 
-    <!-- 第3頁：差異比較 -->
-    <section id="difference" class="section-difference">
-        <div class="container">
+        <!-- 第 3 頁 -->
+        <div class="section">
             <div class="section-header">
-                <span class="section-number">第 3 頁</span>
+                <div class="page-number">3</div>
                 <h2 class="section-title">跟一般 ChatGPT 有什麼差別？</h2>
             </div>
 
             <div class="question-box">
-                <div class="question-icon">💬</div>
-                <div class="question-content">
-                    <h3>企業會問：</h3>
-                    <p>「那我用 Plus 或 Team 不就好了？」</p>
-                </div>
+                <div class="question-icon">💭</div>
+                <div class="question-text">「那我用 Plus 或 Team 不就好了？」</div>
             </div>
 
-            <div class="comparison-table-wrapper">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>項目</th>
-                            <th>一般版本<br><small>(Free/Plus)</small></th>
-                            <th>Team 版本</th>
-                            <th class="highlight-col">Enterprise 版本</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>管理控制</td>
-                            <td>❌ 無</td>
-                            <td>⚠️ 基本</td>
-                            <td class="highlight-col">✅ <strong>完整</strong></td>
-                        </tr>
-                        <tr>
-                            <td>SSO 整合</td>
-                            <td>❌ 無</td>
-                            <td>⚠️ 受限</td>
-                            <td class="highlight-col">✅ <strong>完整支援</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Token 上限</td>
-                            <td>⚠️ 有限</td>
-                            <td>⚠️ 中等</td>
-                            <td class="highlight-col">✅ <strong>大幅提升</strong></td>
-                        </tr>
-                        <tr>
-                            <td>使用分析</td>
-                            <td>❌ 無</td>
-                            <td>⚠️ 基本</td>
-                            <td class="highlight-col">✅ <strong>深度分析</strong></td>
-                        </tr>
-                        <tr>
-                            <td>原廠支援</td>
-                            <td>❌ 無</td>
-                            <td>⚠️ 標準</td>
-                            <td class="highlight-col">✅ <strong>專屬支援</strong></td>
-                        </tr>
-                        <tr>
-                            <td>數據訓練</td>
-                            <td>⚠️ 需退出</td>
-                            <td>⚠️ 需退出</td>
-                            <td class="highlight-col">✅ <strong>絕不訓練</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h3>版本差異比較：</h3>
 
-            <h3 class="subsection-title">三大核心優勢</h3>
-            <div class="advantages-grid">
-                <div class="advantage-card">
-                    <div class="advantage-icon">🎯</div>
-                    <h4>可治理</h4>
-                    <ul>
-                        <li>完整的管理控制台</li>
-                        <li>用戶權限分級管理</li>
-                        <li>使用行為追蹤</li>
-                        <li>政策強制執行</li>
-                        <li>審計日誌記錄</li>
-                    </ul>
-                    <p class="advantage-note">確保 AI 使用符合企業規範</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">📊</div>
-                    <h4>可放大</h4>
-                    <ul>
-                        <li>支援大規模部署</li>
-                        <li>無使用次數限制</li>
-                        <li>更高的效能保證</li>
-                        <li>企業級 SLA</li>
-                        <li>優先存取新功能</li>
-                    </ul>
-                    <p class="advantage-note">從試點到全面推廣無縫擴展</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">🔄</div>
-                    <h4>可長期經營</h4>
-                    <ul>
-                        <li>持續模型升級</li>
-                        <li>專屬客戶成功團隊</li>
-                        <li>長期技術支援</li>
-                        <li>策略合作夥伴</li>
-                    </ul>
-                    <p class="advantage-note">長期技術支援與策略諮詢</p>
-                </div>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>項目</th>
+                        <th>一般版本</th>
+                        <th>Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>管理控制</strong></td>
+                        <td>無</td>
+                        <td>有</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SSO</strong></td>
+                        <td>限制</td>
+                        <td>完整支援</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Token 上限</strong></td>
+                        <td>有限</td>
+                        <td>大幅提升</td>
+                    </tr>
+                    <tr>
+                        <td><strong>使用分析</strong></td>
+                        <td>無</td>
+                        <td>有</td>
+                    </tr>
+                    <tr>
+                        <td><strong>原廠支援</strong></td>
+                        <td>無</td>
+                        <td>有</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>重點強調：</h3>
+            <ul class="bullet-list">
+                <li>可治理</li>
+                <li>可放大</li>
+                <li>可長期經營</li>
+            </ul>
         </div>
-    </section>
 
-    <!-- 第4頁：與競品差異 -->
-    <section class="section-competitors">
-        <div class="container">
+        <!-- 第 4 頁 -->
+        <div class="section">
             <div class="section-header">
-                <span class="section-number">第 4 頁</span>
+                <div class="page-number">4</div>
                 <h2 class="section-title">跟 Microsoft Copilot / Gemini 差在哪？</h2>
             </div>
 
             <div class="question-box">
-                <div class="question-icon">💬</div>
-                <div class="question-content">
-                    <h3>企業會問：</h3>
-                    <p>「那為什麼不是選 Microsoft？」</p>
+                <div class="question-icon">💭</div>
+                <div class="question-text">「那為什麼不是選 Microsoft？」</div>
+            </div>
+
+            <h3>定位差異：</h3>
+            <ul class="bullet-list">
+                <li>ChatGPT Enterprise = <span class="highlight-text">模型平台</span></li>
+                <li>Microsoft Copilot = <span class="highlight-text">Office 整合型 AI</span></li>
+                <li>Gemini = <span class="highlight-text">Google Workspace 整合</span></li>
+            </ul>
+
+            <h3>關鍵差異：</h3>
+            <div class="three-column">
+                <div class="card card-info">
+                    <div class="card-title">是否綁定辦公生態系？</div>
+                    <p>ChatGPT Enterprise 為獨立平台，不綁定特定辦公軟體</p>
+                </div>
+                <div class="card card-info">
+                    <div class="card-title">是否可自建 GPT？</div>
+                    <p>支援企業自訂 GPT，建立專屬知識庫</p>
+                </div>
+                <div class="card card-info">
+                    <div class="card-title">是否可跨系統使用？</div>
+                    <p>可整合至各種企業系統與工作流程</p>
                 </div>
             </div>
 
-            <div class="competitors-grid">
-                <div class="competitor-card chatgpt">
-                    <div class="competitor-badge">平台型</div>
-                    <div class="competitor-icon">🤖</div>
-                    <h3>ChatGPT Enterprise</h3>
-                    <p class="competitor-subtitle">= 模型平台</p>
-                    <ul class="competitor-features">
-                        <li>✅ 專注於 AI 模型能力</li>
-                        <li>✅ 可自建 GPTs</li>
-                        <li>✅ 可跨系統使用</li>
-                        <li>✅ 不綁定辦公生態系</li>
-                        <li>✅ API 優先設計</li>
-                    </ul>
-                    <div class="competitor-suit">
-                        <strong>適合：</strong>需要靈活整合、自主控制的企業
-                    </div>
-                </div>
-                <div class="competitor-card microsoft">
-                    <div class="competitor-badge">整合型</div>
-                    <div class="competitor-icon">🏢</div>
-                    <h3>Microsoft Copilot</h3>
-                    <p class="competitor-subtitle">= Office 整合型 AI</p>
-                    <ul class="competitor-features">
-                        <li>Microsoft 365 深度整合</li>
-                        <li>Word、Excel、Teams 內建</li>
-                        <li>依賴 Microsoft 生態系</li>
-                        <li>適合已全面使用 M365 企業</li>
-                    </ul>
-                    <div class="competitor-suit">
-                        <strong>適合：</strong>Microsoft 生態系重度用戶
-                    </div>
-                </div>
-                <div class="competitor-card google">
-                    <div class="competitor-badge">整合型</div>
-                    <div class="competitor-icon">🔍</div>
-                    <h3>Google Gemini</h3>
-                    <p class="competitor-subtitle">= Google Workspace 整合</p>
-                    <ul class="competitor-features">
-                        <li>Gmail、Docs、Sheets 整合</li>
-                        <li>適合 Google 生態系企業</li>
-                    </ul>
-                    <div class="competitor-suit">
-                        <strong>適合：</strong>Google Workspace 用戶
-                    </div>
-                </div>
-            </div>
-
-            <div class="key-difference">
-                <div class="key-difference-icon">💡</div>
-                <div class="key-difference-content">
-                    <h3>關鍵差異：彈性與控制權</h3>
-                    <p>平台型給您最大的自主性，整合型給您最方便的體驗</p>
-                </div>
+            <div class="key-point">
+                平台型 vs 整合型
             </div>
         </div>
-    </section>
 
-    <!-- 第5頁：導入流程 -->
-    <section id="process" class="section-process">
-        <div class="container">
+        <!-- 第 5 頁 -->
+        <div class="section">
             <div class="section-header">
-                <span class="section-number">第 5 頁</span>
+                <div class="page-number">5</div>
                 <h2 class="section-title">導入後企業會經歷什麼流程？</h2>
             </div>
 
             <div class="question-box">
-                <div class="question-icon">💬</div>
-                <div class="question-content">
-                    <h3>企業會問：</h3>
-                    <p>「會不會很複雜?」</p>
-                </div>
+                <div class="question-icon">💭</div>
+                <div class="question-text">「會不會很複雜？」</div>
             </div>
 
-            <h3 class="subsection-title">三階段導入流程（4-6 個月）</h3>
+            <h3>三階段：</h3>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-marker">1</div>
-                    <div class="timeline-content">
-                        <h4>治理對焦</h4>
-                        <p class="timeline-duration">1-2 月</p>
-                        <ul>
-                            <li>制定 AI 使用政策</li>
-                            <li>定義敏感資料範圍</li>
-                            <li>確定部門優先順序</li>
-                            <li>HR / IT 部門對齊</li>
-                            <li>成立推動小組</li>
-                        </ul>
-                    </div>
+                    <h4>① 治理對焦（1–2 月）</h4>
+                    <p>建立 AI 使用政策、定義敏感資料、對齊組織需求</p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-marker">2</div>
-                    <div class="timeline-content">
-                        <h4>系統設定與開通</h4>
-                        <p class="timeline-duration">1-2 週</p>
-                        <ul>
-                            <li>SSO 整合設定</li>
-                            <li>Admin Console 配置</li>
-                            <li>權限分級建立</li>
-                            <li>使用監控啟用</li>
-                        </ul>
-                    </div>
+                    <h4>② 系統設定與帳號開通</h4>
+                    <p>整合 SSO、設定管理控制台、開通使用者權限</p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-marker">3</div>
-                    <div class="timeline-content">
-                        <h4>顧問導入與流程落地</h4>
-                        <p class="timeline-duration">1-2 月</p>
-                        <ul>
-                            <li>部門流程拆解分析</li>
-                            <li>高頻工作場景優化</li>
-                            <li>建立部門專屬 GPTs</li>
-                            <li>主管工作坊</li>
-                            <li>實戰演練與輔導</li>
-                        </ul>
-                    </div>
+                    <h4>③ 顧問導入與流程落地（1–2 月）</h4>
+                    <p>部門流程改造、建立專屬 GPT、實戰演練</p>
                 </div>
             </div>
 
-            <div class="process-highlight">
-                <div class="highlight-icon">⚠️</div>
-                <div class="highlight-content">
-                    <h3>技術很快，真正重要的是治理與流程</h3>
-                    <p>成功關鍵在於工作流程改變，而不只是工具使用熟練度</p>
-                </div>
+            <div class="key-point">
+                技術很快，真正重要是治理與流程。
             </div>
 
-            <div class="before-after">
-                <h3 class="subsection-title">Before / After 流程對照</h3>
-                <div class="comparison-cards">
-                    <div class="comparison-card before">
-                        <h4>❌ Before：傳統流程</h4>
-                        <p class="comparison-scenario">客戶詢問回覆流程</p>
-                        <div class="flow-steps">
-                            <div class="flow-step">客戶提問</div>
-                            <div class="flow-arrow">↓ 30 分鐘</div>
-                            <div class="flow-step">搜尋內部文件</div>
-                            <div class="flow-arrow">↓ 20 分鐘</div>
-                            <div class="flow-step">詢問資深同事</div>
-                            <div class="flow-arrow">↓ 40 分鐘</div>
-                            <div class="flow-step">整理回覆內容</div>
-                            <div class="flow-arrow">↓ 10 分鐘</div>
-                            <div class="flow-step">回覆客戶</div>
-                        </div>
-                        <div class="total-time">總時間：100 分鐘</div>
+            <div class="card card-info">
+                <div class="card-title">時間軸</div>
+                <p><strong>4–6 個月完整週期</strong></p>
+            </div>
+        </div>
+
+        <!-- 第 6 頁 -->
+        <div class="section">
+            <div class="section-header">
+                <div class="page-number">6</div>
+                <h2 class="section-title">第一階段：治理對焦會做什麼？</h2>
+            </div>
+
+            <div class="question-box">
+                <div class="question-icon">💭</div>
+                <div class="question-text">「我們要準備什麼？」</div>
+            </div>
+
+            <ul class="bullet-list">
+                <li>AI 使用政策</li>
+                <li>敏感資料定義</li>
+                <li>部門優先順序</li>
+                <li>HR / IT 對齊</li>
+                <li>成立內部推動小組</li>
+            </ul>
+
+            <div class="key-point">
+                這階段決定後續風險與成效。
+            </div>
+
+            <div class="card card-emphasis">
+                <div class="card-title">治理框架</div>
+                <div class="two-column" style="margin-top: 15px;">
+                    <div>
+                        <strong>政策層面：</strong>
+                        <ul style="margin-top: 8px; padding-left: 20px;">
+                            <li>AI 使用規範</li>
+                            <li>資料分類原則</li>
+                        </ul>
                     </div>
-                    <div class="comparison-card after">
-                        <h4>✅ After：AI 優化流程</h4>
-                        <p class="comparison-scenario">使用企業 GPT</p>
-                        <div class="flow-steps">
-                            <div class="flow-step">客戶提問</div>
-                            <div class="flow-arrow">↓ 2 分鐘</div>
-                            <div class="flow-step">企業 GPT 查詢知識庫</div>
-                            <div class="flow-arrow">↓ 3 分鐘</div>
-                            <div class="flow-step">AI 生成回覆草稿</div>
-                            <div class="flow-arrow">↓ 5 分鐘</div>
-                            <div class="flow-step">人工審核與發送</div>
-                        </div>
-                        <div class="total-time">總時間：10 分鐘</div>
-                        <div class="efficiency">⚡ 效率提升：90%</div>
+                    <div>
+                        <strong>組織層面：</strong>
+                        <ul style="margin-top: 8px; padding-left: 20px;">
+                            <li>推動小組成立</li>
+                            <li>跨部門協作</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- 第6頁：投資規模 -->
-    <section id="cost" class="section-cost">
-        <div class="container">
+        <!-- 第 7 頁 -->
+        <div class="section">
             <div class="section-header">
-                <span class="section-number">第 6 頁</span>
+                <div class="page-number">7</div>
+                <h2 class="section-title">第二階段：系統設定與帳號開通</h2>
+            </div>
+
+            <div class="question-box">
+                <div class="question-icon">💭</div>
+                <div class="question-text">「技術整合會不會很難？」</div>
+            </div>
+
+            <ul class="bullet-list">
+                <li>SSO 整合</li>
+                <li>Admin Console 設定</li>
+                <li>權限分級</li>
+                <li>使用監控</li>
+            </ul>
+
+            <div class="card card-success">
+                <div class="card-title">時間：</div>
+                <p>通常 <strong>1–2 週</strong>內完成</p>
+            </div>
+
+            <h3>系統整合示意圖：</h3>
+            <div class="flow-diagram">
+                <div class="flow-box">企業 IT 系統</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box">SSO 整合</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box">ChatGPT 平台</div>
+            </div>
+        </div>
+
+        <!-- 第 8 頁 -->
+        <div class="section">
+            <div class="section-header">
+                <div class="page-number">8</div>
+                <h2 class="section-title">第三階段：顧問導入與流程改造</h2>
+            </div>
+
+            <div class="question-box">
+                <div class="question-icon">💭</div>
+                <div class="question-text">「怎麼確保不是買來放著？」</div>
+            </div>
+
+            <ul class="bullet-list">
+                <li>部門流程拆解</li>
+                <li>高頻工作場景優化</li>
+                <li>建立部門 GPT</li>
+                <li>主管工作坊</li>
+                <li>實戰演練</li>
+            </ul>
+
+            <div class="key-point">
+                導入成功關鍵在於工作流程改變，而不是工具使用熟練度。
+            </div>
+
+            <div class="card card-emphasis">
+                <div class="card-title">Before / After 流程對照</div>
+                <div class="two-column" style="margin-top: 15px;">
+                    <div>
+                        <strong>導入前：</strong>
+                        <ul style="margin-top: 8px; padding-left: 20px;">
+                            <li>手動重複性工作</li>
+                            <li>資訊分散</li>
+                            <li>流程冗長</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>導入後：</strong>
+                        <ul style="margin-top: 8px; padding-left: 20px;">
+                            <li>AI 協作自動化</li>
+                            <li>知識庫整合</li>
+                            <li>流程優化</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第 9 頁 -->
+        <div class="section">
+            <div class="section-header">
+                <div class="page-number">9</div>
+                <h2 class="section-title">與 HR / 教育訓練單位如何合作？</h2>
+            </div>
+
+            <div class="question-box">
+                <div class="question-icon">💭</div>
+                <div class="question-text">「怎麼讓全員真的用？」</div>
+            </div>
+
+            <ul class="bullet-list">
+                <li>納入新人訓練</li>
+                <li>納入主管培訓</li>
+                <li>建立 AI 種子教練</li>
+                <li>設計內部認證制度</li>
+            </ul>
+
+            <div class="key-point">
+                這是文化改變工程。
+            </div>
+
+            <div class="card card-info">
+                <div class="card-title">HR 整合流程</div>
+                <div class="flow-diagram" style="background: transparent; padding: 15px 0;">
+                    <div class="flow-box" style="border-color: var(--info);">新人訓練</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box" style="border-color: var(--info);">主管培訓</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box" style="border-color: var(--info);">種子教練</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box" style="border-color: var(--info); background: var(--info); color: white;">內部認證</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第 10 頁 -->
+        <div class="section">
+            <div class="section-header">
+                <div class="page-number">10</div>
                 <h2 class="section-title">投資規模與實際成本（150 人）</h2>
             </div>
 
             <div class="question-box">
-                <div class="question-icon">💬</div>
-                <div class="question-content">
-                    <h3>企業會問：</h3>
-                    <p>「多少錢？」</p>
-                </div>
+                <div class="question-icon">💭</div>
+                <div class="question-text">「多少錢？」</div>
             </div>
 
-            <h3 class="subsection-title">假設：150 人企業</h3>
-            <div class="cost-grid">
-                <div class="cost-card">
-                    <div class="cost-icon">💰</div>
-                    <h4>年度投資</h4>
-                    <div class="cost-breakdown">
-                        <div class="cost-item">
-                            <span class="cost-label">授權費用</span>
-                            <span class="cost-value">150 人 × $40 USD / 月</span>
-                        </div>
-                        <div class="cost-item highlight">
-                            <span class="cost-label">月費</span>
-                            <span class="cost-value">$6,000 USD</span>
-                        </div>
-                        <div class="cost-item highlight">
-                            <span class="cost-label">年費</span>
-                            <span class="cost-value">約 $72,000 USD</span>
-                        </div>
-                        <div class="cost-item">
-                            <span class="cost-label">一次性費用</span>
-                            <span class="cost-value">導入顧問 + 整合 + 訓練</span>
-                        </div>
-                        <div class="cost-total">
-                            <span class="cost-label">總計第一年</span>
-                            <span class="cost-value">約 $90,000 USD</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="cost-card">
-                    <div class="cost-icon">📊</div>
-                    <h4>價值分析</h4>
-                    <div class="value-points">
-                        <div class="value-point">
-                            <span class="check">✅</span>
-                            <span>不再零散投資多個工具</span>
-                        </div>
-                        <div class="value-point">
-                            <span class="check">✅</span>
-                            <span>無硬體建置成本</span>
-                        </div>
-                        <div class="value-point">
-                            <span class="check">✅</span>
-                            <span>持續模型自動升級</span>
-                        </div>
-                        <div class="value-point">
-                            <span class="check">✅</span>
-                            <span>企業級支援與服務</span>
-                        </div>
-                    </div>
-                    <div class="per-person-cost">
-                        <p><strong>每人每月成本</strong></p>
-                        <p class="cost-highlight">$40 USD ≈ NT$ 1,200</p>
-                        <p>相當於一杯咖啡的價格</p>
-                    </div>
-                </div>
+            <h3>假設：</h3>
+            <div class="card card-emphasis">
+                <ul class="bullet-list">
+                    <li>150 人</li>
+                    <li>$40 USD / 月</li>
+                    <li>年費約 <strong>72,000 USD</strong></li>
+                </ul>
             </div>
 
-            <div class="cost-comparison">
-                <h3 class="subsection-title">成本對比：零散工具 vs 統一平台</h3>
-                <div class="comparison-table-wrapper">
-                    <table class="cost-comparison-table">
-                        <thead>
-                            <tr>
-                                <th>項目</th>
-                                <th>零散工具方案</th>
-                                <th>ChatGPT Enterprise</th>
-                                <th>差異</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>授權成本</td>
-                                <td>$50-80/人/月</td>
-                                <td>$40/人/月</td>
-                                <td class="savings">✅ -30%</td>
-                            </tr>
-                            <tr>
-                                <td>管理成本</td>
-                                <td>高（多個平台）</td>
-                                <td>低（單一平台）</td>
-                                <td class="savings">✅ -60%</td>
-                            </tr>
-                            <tr>
-                                <td>IT 支援</td>
-                                <td>分散難管理</td>
-                                <td>統一支援</td>
-                                <td class="savings">✅ -50%</td>
-                            </tr>
-                            <tr>
-                                <td>資料安全</td>
-                                <td>風險分散</td>
-                                <td>集中控管</td>
-                                <td class="savings">✅ 更安全</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <h3>重點強調：</h3>
+            <ul class="bullet-list">
+                <li>統一平台</li>
+                <li>不再零散投資</li>
+                <li>無硬體成本</li>
+                <li>持續模型升級</li>
+            </ul>
 
-            <div class="hidden-savings">
-                <div class="savings-icon">💡</div>
-                <div class="savings-content">
-                    <h4>隱藏成本節省</h4>
-                    <p>無硬體成本 • 無維護成本 • 持續模型升級 • 24/7 可用性</p>
-                    <p>統一平台不只省錢，更提升整體效率與安全性</p>
+            <div class="two-column">
+                <div class="card card-warning">
+                    <div class="card-title">零散工具成本</div>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li>各式 AI 訂閱</li>
+                        <li>缺乏整合</li>
+                        <li>難以管理</li>
+                        <li>重複投資</li>
+                    </ul>
+                </div>
+                <div class="card card-success">
+                    <div class="card-title">統一平台成本</div>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li>單一訂閱</li>
+                        <li>集中管理</li>
+                        <li>規模經濟</li>
+                        <li>長期效益</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- TPI 的角色 -->
-    <section class="section-tpi">
-        <div class="container">
+        <!-- 第 11 頁 -->
+        <div class="section">
             <div class="section-header">
-                <span class="section-number">第 7 頁</span>
+                <div class="page-number">11</div>
+                <h2 class="section-title">Enterprise 的現實申請機制</h2>
+            </div>
+
+            <div class="question-box">
+                <div class="question-icon">💭</div>
+                <div class="question-text">「我們怎麼申請？」</div>
+            </div>
+
+            <h3>重點說明：</h3>
+            <ul class="bullet-list">
+                <li>無公開申請入口</li>
+                <li>通常需達一定用量</li>
+                <li>原廠主動通知</li>
+            </ul>
+
+            <h3>企業自行嘗試的風險：</h3>
+            <div class="card card-warning">
+                <ul class="bullet-list">
+                    <li>時間不確定</li>
+                    <li>無對接窗口</li>
+                    <li>無導入資源</li>
+                </ul>
+            </div>
+
+            <div class="two-column">
+                <div class="card card-warning">
+                    <div class="card-title">❌ 自行摸索</div>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li>不確定性高</li>
+                        <li>缺乏支援</li>
+                        <li>導入困難</li>
+                    </ul>
+                </div>
+                <div class="card card-success">
+                    <div class="card-title">✓ 經 TPI 對接</div>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li>快速通道</li>
+                        <li>專業支援</li>
+                        <li>成功落地</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第 12 頁 -->
+        <div class="section">
+            <div class="section-header">
+                <div class="page-number">12</div>
                 <h2 class="section-title">TPIsoftware 的角色</h2>
             </div>
 
             <div class="question-box">
-                <div class="question-icon">💬</div>
-                <div class="question-content">
-                    <h3>企業會問：</h3>
-                    <p>「你們提供什麼價值？」</p>
-                </div>
+                <div class="question-icon">💭</div>
+                <div class="question-text">我們提供的價值</div>
             </div>
 
-            <div class="tpi-services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🔌</div>
-                    <h4>原廠對接服務</h4>
-                    <ul>
-                        <li>OpenAI 官方合作夥伴</li>
-                        <li>直接對接窗口</li>
-                        <li>快速啟動流程</li>
-                        <li>資格評估協助</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📋</div>
-                    <h4>治理設計顧問</h4>
-                    <ul>
-                        <li>AI 使用政策制定</li>
-                        <li>資料安全規劃</li>
-                        <li>合規要求對齊</li>
-                        <li>風險管理框架</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🚀</div>
-                    <h4>導入顧問服務</h4>
-                    <ul>
-                        <li>三階段導入規劃</li>
-                        <li>流程優化設計</li>
-                        <li>部門 GPT 建立</li>
-                        <li>技術整合支援</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎓</div>
-                    <h4>HR 教育訓練整合</h4>
-                    <ul>
-                        <li>培訓體系設計</li>
-                        <li>種子教練培養</li>
-                        <li>認證制度建立</li>
-                        <li>持續學習規劃</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h4>長期成效優化</h4>
-                    <ul>
-                        <li>使用數據分析</li>
-                        <li>ROI 追蹤評估</li>
-                        <li>持續改善建議</li>
-                        <li>最佳實踐分享</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🤝</div>
-                    <h4>策略合作夥伴</h4>
-                    <ul>
-                        <li>定期健檢服務</li>
-                        <li>新功能導入</li>
-                        <li>問題快速解決</li>
-                        <li>長期戰略諮詢</li>
-                    </ul>
-                </div>
+            <ul class="bullet-list">
+                <li>原廠對接窗口</li>
+                <li>協助申請與資格評估</li>
+                <li>治理設計顧問</li>
+                <li>導入顧問服務</li>
+                <li>HR 教育訓練整合</li>
+                <li>長期成效優化</li>
+            </ul>
+
+            <div class="key-point">
+                我們協助企業，不只是取得 Enterprise，<br>
+                而是成功落地 AI 能力。
             </div>
 
-            <div class="value-proposition">
-                <h3>我們的價值主張</h3>
-                <div class="value-box">
-                    <p class="value-main">我們協助企業，</p>
-                    <p class="value-emphasis">不只是取得 Enterprise，<br>而是成功落地 AI 能力</p>
-                    <div class="value-features">
-                        <div class="value-feature">
-                            <div class="feature-icon">🎯</div>
-                            <strong>快速啟動</strong>
-                            <p>2-4 週開始使用</p>
-                        </div>
-                        <div class="value-feature">
-                            <div class="feature-icon">📊</div>
-                            <strong>確保成效</strong>
-                            <p>流程優化落地</p>
-                        </div>
-                        <div class="value-feature">
-                            <div class="feature-icon">🤝</div>
-                            <strong>長期夥伴</strong>
-                            <p>持續支援優化</p>
-                        </div>
-                    </div>
-                </div>
+            <h3>三層角色圖：</h3>
+            <div class="flow-diagram" style="flex-direction: column;">
+                <div class="flow-box" style="width: 80%;">OpenAI 原廠</div>
+                <div class="flow-arrow" style="transform: rotate(90deg); margin: 10px 0;">→</div>
+                <div class="flow-box" style="width: 80%; background: var(--primary); color: white;">TPI 顧問橋接</div>
+                <div class="flow-arrow" style="transform: rotate(90deg); margin: 10px 0;">→</div>
+                <div class="flow-box" style="width: 80%;">企業組織落地</div>
             </div>
+
         </div>
-    </section>
+    </div>
 
-    <!-- CTA Section -->
-    <section id="contact" class="section-cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>準備好開始了嗎？</h2>
-                <p class="cta-description">下一步行動</p>
-                <div class="cta-steps">
-                    <div class="cta-step">
-                        <div class="cta-step-icon">📞</div>
-                        <h4>預約諮詢</h4>
-                        <p>安排 30 分鐘<br>免費評估會議</p>
-                    </div>
-                    <div class="cta-step">
-                        <div class="cta-step-icon">🎯</div>
-                        <h4>試點規劃</h4>
-                        <p>設計適合您的<br>導入方案</p>
-                    </div>
-                    <div class="cta-step">
-                        <div class="cta-step-icon">🚀</div>
-                        <h4>快速啟動</h4>
-                        <p>2-4 週內<br>開始使用</p>
-                    </div>
-                </div>
-                <div class="cta-buttons">
-                    <a href="mailto:enterprise-ai@tpisoftware.com" class="btn btn-large btn-white">立即聯繫我們</a>
-                </div>
-                <p class="cta-tagline">讓 AI 成為企業競爭力，而不是風險</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="images/tpi-logo.png" alt="TPIsoftware Logo" class="footer-logo-img">
-                    <p>OpenAI 官方合作夥伴</p>
-                </div>
-                <div class="footer-info">
-                    <h4>聯繫資訊</h4>
-                    <p>Email: enterprise-ai@tpisoftware.com</p>
-                    <p>Website: www.tpisoftware.com</p>
-                </div>
-                <div class="footer-resources">
-                    <h4>相關資源</h4>
-                    <ul>
-                        <li><a href="https://openai.com/enterprise" target="_blank" rel="noopener">OpenAI Enterprise</a></li>
-                        <li><a href="https://platform.openai.com/docs" target="_blank" rel="noopener">API 文檔</a></li>
-                        <li><a href="https://openai.com/security" target="_blank" rel="noopener">安全白皮書</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 TPIsoftware. 協助企業成功落地 AI 能力</p>
-            </div>
-        </div>
+    <footer>
+        <p class="tagline">Your AI Partner for Mission-Critical Success</p>
+        <p style="margin-top: 15px;">昕力資訊股份有限公司 © 2026 TPIsoftware. All rights reserved.</p>
     </footer>
-
-    <script src="js/script.js"></script>
 </body>
 </html>
