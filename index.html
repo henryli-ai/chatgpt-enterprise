@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatGPT Enterprise 企業導入簡報｜TPIsoftware</title>
+    <title>ChatGPT Enterprise 企業導入介紹｜TPIsoftware</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
@@ -405,6 +405,84 @@
             margin-top: 8px;
         }
 
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+                padding: 15px;
+            }
+
+            .logo-section {
+                justify-content: center;
+            }
+
+            .header-title h1 {
+                font-size: 20px;
+            }
+
+            .header-title p {
+                font-size: 13px;
+            }
+
+            .section {
+                padding: 18px 15px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .page-number {
+                width: 34px;
+                height: 34px;
+                font-size: 15px;
+            }
+
+            .question-text {
+                font-size: 15px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+
+            .two-column,
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-diagram {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .flow-box {
+                width: 100%;
+                flex: none;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .key-point {
+                font-size: 14px;
+                padding: 12px 14px;
+            }
+
+            footer {
+                border-radius: 0;
+                margin-top: 20px;
+            }
+        }
+
         @media print {
             body {
                 background: white;
@@ -573,7 +651,7 @@
             <div class="logo-box">TPIsoftware</div>
         </div>
         <div class="header-title">
-            <h1>ChatGPT Enterprise 企業導入簡報</h1>
+            <h1>ChatGPT Enterprise 企業導入介紹</h1>
             <p>Your AI Partner for Mission-Critical Success</p>
         </div>
     </header>
