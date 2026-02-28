@@ -483,6 +483,325 @@
             }
         }
 
+        /* ── 第 4 頁：品牌信任頁面 ── */
+        .logo-marquee-section {
+            margin: 14px 0 22px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .logo-marquee-section::before,
+        .logo-marquee-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 80px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .logo-marquee-section::before {
+            left: 0;
+            background: linear-gradient(to right, white 60%, transparent);
+        }
+        .logo-marquee-section::after {
+            right: 0;
+            background: linear-gradient(to left, white 60%, transparent);
+        }
+
+        .logo-marquee-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            width: max-content;
+        }
+        .logo-marquee-row.row-1 { animation: marquee-left 38s linear infinite; }
+        .logo-marquee-row.row-2 { animation: marquee-right 38s linear infinite; }
+
+        @keyframes marquee-left {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-right {
+            0%   { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .brand-tag {
+            background: #f5f5f7;
+            border: 1px solid #e0e0e4;
+            border-radius: 8px;
+            padding: 0 18px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #2c2c2c;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            height: 46px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .brand-tag:hover {
+            background: var(--primary-pale);
+            border-color: var(--primary-lighter);
+        }
+
+        .logo-divider {
+            border: none;
+            border-top: 2px solid #f0edf8;
+            margin: 20px 0;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, #f5f3ff 100%);
+            border-left: 5px solid var(--primary);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .testimonial-quote-mark {
+            font-size: 56px;
+            color: var(--primary);
+            line-height: 0.75;
+            font-family: Georgia, 'Times New Roman', serif;
+            flex-shrink: 0;
+            margin-top: 10px;
+            opacity: 0.7;
+        }
+        .testimonial-quote-text {
+            font-size: 15px;
+            font-style: italic;
+            color: var(--dark);
+            line-height: 1.75;
+            margin-bottom: 10px;
+        }
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 14px;
+        }
+        .testimonial-role {
+            font-size: 12px;
+            color: var(--secondary);
+            margin-top: 2px;
+        }
+
+        .stats-section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .stats-section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e0d9f5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+        .stat-item {
+            background: white;
+            border: 1.5px solid #ede9fa;
+            border-radius: 10px;
+            padding: 16px 8px 14px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(102,46,141,0.06);
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+        }
+        .stat-number {
+            font-size: 30px;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 7px;
+        }
+        .stat-label {
+            font-size: 11.5px;
+            color: #555;
+            line-height: 1.45;
+        }
+
+        .source-line {
+            text-align: center;
+            font-size: 11.5px;
+            color: #aaa;
+            margin-top: 18px;
+            padding-top: 12px;
+            border-top: 1px solid #eee;
+            letter-spacing: 0.2px;
+        }
+        .source-line a {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* ── Testimonial Grid（圖片風格 3×2 卡片） ── */
+        .tg-wrapper {
+            background: #e6e6e4;
+            border-radius: 14px;
+            display: grid;
+            grid-template-columns: 1.45fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 3px;
+            overflow: hidden;
+            margin-bottom: 18px;
+        }
+        .tg-card {
+            background: #f8f8f6;
+            padding: 22px 24px;
+            display: flex;
+            flex-direction: column;
+        }
+        .tg-card-main {
+            grid-row: 1 / 3;
+            padding: 26px 28px;
+            justify-content: flex-start;
+        }
+        .tg-card-sub { justify-content: space-between; }
+
+        .tg-brand {
+            margin-bottom: 14px;
+            min-height: 40px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .tg-logo-img {
+            height: 38px;
+            max-width: 150px;
+            object-fit: contain;
+            object-position: left center;
+            display: block;
+        }
+        /* 圖片載入失敗時的文字 fallback */
+        .brand-moderna {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0d0d0d;
+            letter-spacing: 0.5px;
+            border-bottom: 2px dashed #0d0d0d;
+            display: inline-block;
+            padding-bottom: 3px;
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+        .brand-estee {
+            font-size: 10px;
+            font-weight: 800;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            line-height: 1.35;
+        }
+        .brand-spurs-wrap {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .brand-spurs-top {
+            font-size: 9px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        .brand-spurs-main {
+            font-size: 22px;
+            font-weight: 900;
+            color: #1a1a1a;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            line-height: 1;
+            font-family: 'Arial Black', 'Impact', sans-serif;
+        }
+        .brand-bbva {
+            font-size: 26px;
+            font-weight: 900;
+            color: #004b9e;
+            letter-spacing: 1px;
+            font-family: 'Arial Black', sans-serif;
+        }
+        .brand-upwork {
+            font-size: 22px;
+            font-weight: 700;
+            color: #14a800;
+            letter-spacing: -0.5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .tg-quote {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0d0d0d;
+            line-height: 1.55;
+            flex: 1;
+            margin-bottom: 14px;
+        }
+        .tg-author-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1px;
+        }
+        .tg-author-role {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 22px;
+        }
+        .tg-stat-num {
+            font-size: 42px;
+            font-weight: 900;
+            color: #0d0d0d;
+            line-height: 1;
+            margin-bottom: 5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            letter-spacing: -1px;
+        }
+        .tg-stat-label {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.45;
+        }
+        .tg-stat-num-sub {
+            font-size: 36px;
+            font-weight: 900;
+            color: #0d0d0d;
+            line-height: 1;
+            margin-bottom: 5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            letter-spacing: -1px;
+        }
+
+        @media (max-width: 768px) {
+            .tg-wrapper {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+            .tg-card-main { grid-row: auto; }
+            .logo-marquee-section::before,
+            .logo-marquee-section::after { width: 36px; }
+        }
+
         @media print {
             body {
                 background: white;
@@ -642,8 +961,30 @@
             footer p {
                 font-size: 12px;
             }
+
+            .logo-marquee-row { animation: none !important; }
+            .logo-marquee-row.row-2 { transform: translateX(-50%); }
+            .logo-marquee-section { overflow: hidden; max-height: 110px; }
+            .logo-marquee-section::before,
+            .logo-marquee-section::after { display: none; }
+            .brand-tag { height: 36px; padding: 0 12px; font-size: 11px; }
+            .tg-wrapper { gap: 2px; border-radius: 10px; }
+            .tg-card { padding: 16px 18px; }
+            .tg-card-main { padding: 18px 20px; }
+            .tg-logo-img { height: 28px; max-width: 120px; }
+            .tg-quote { font-size: 14px; margin-bottom: 10px; }
+            .tg-stat-num { font-size: 30px; }
+            .tg-stat-num-sub { font-size: 26px; }
+            .tg-stat-label { font-size: 10.5px; }
+            .tg-author-role { margin-bottom: 14px; }
+            .brand-moderna { font-size: 14px; }
+            .brand-bbva { font-size: 20px; }
+            .brand-upwork { font-size: 17px; }
+            .brand-spurs-main { font-size: 17px; }
+            .source-line { font-size: 11px; margin-top: 12px; }
         }
     </style>
+
 </head>
 <body>
     <header>
@@ -661,7 +1002,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="page-number">1</div>
-                <h2 class="section-title">我們為什麼要正式討論 AI 平台？</h2>
+                <h2 class="section-title">我們為什麼要正式討論 AI 平台</h2>
             </div>
 
             <div class="question-box">
@@ -689,7 +1030,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="page-number">2</div>
-                <h2 class="section-title">什麼是 ChatGPT Enterprise？</h2>
+                <h2 class="section-title">什麼是 ChatGPT Enterprise</h2>
             </div>
 
             <div class="question-box">
@@ -725,12 +1066,12 @@
         <div class="section">
             <div class="section-header">
                 <div class="page-number">3</div>
-                <h2 class="section-title">跟一般 ChatGPT 有什麼差別？</h2>
+                <h2 class="section-title">跟一般 ChatGPT 有什麼差別</h2>
             </div>
 
             <div class="question-box">
                 <div class="question-icon">💭</div>
-                <div class="question-text">「那我用 Plus 或 Team 不就好了？」</div>
+                <div class="question-text">「那我用 Plus 或 Business 不就好了？」</div>
             </div>
 
             <h3>版本差異比較：</h3>
@@ -780,16 +1121,183 @@
             </ul>
         </div>
 
-        <!-- 第 4 頁 -->
+        <!-- 第 4 頁（新）：信任頁 -->
         <div class="section">
             <div class="section-header">
                 <div class="page-number">4</div>
-                <h2 class="section-title">跟 Microsoft Copilot / Gemini 差在哪？</h2>
+                <h2 class="section-title">深獲各界領袖與團隊信賴</h2>
+            </div>
+
+            <p style="font-size:14px;color:var(--secondary);margin-bottom:14px;">全球各產業龍頭企業已選擇 ChatGPT Enterprise，覆蓋金融、科技、醫療、零售、顧問等核心領域。</p>
+
+            <!-- ── 雙排捲動 Logo 帶 ── -->
+            <div class="logo-marquee-section">
+                <!-- 第一排：向左捲動 -->
+                <div class="logo-marquee-row row-1">
+                    <span class="brand-tag">Morgan Stanley</span>
+                    <span class="brand-tag">Goldman Sachs</span>
+                    <span class="brand-tag">PwC</span>
+                    <span class="brand-tag">Salesforce</span>
+                    <span class="brand-tag">Cisco</span>
+                    <span class="brand-tag">T-Mobile</span>
+                    <span class="brand-tag">Amgen</span>
+                    <span class="brand-tag">Thermo Fisher</span>
+                    <span class="brand-tag">Estée Lauder</span>
+                    <span class="brand-tag">Target</span>
+                    <span class="brand-tag">Walmart</span>
+                    <span class="brand-tag">Klarna</span>
+                    <span class="brand-tag">BBVA</span>
+                    <span class="brand-tag">Moderna</span>
+                    <span class="brand-tag">Carlyle</span>
+                    <!-- 重複以實現無縫循環 -->
+                    <span class="brand-tag">Morgan Stanley</span>
+                    <span class="brand-tag">Goldman Sachs</span>
+                    <span class="brand-tag">PwC</span>
+                    <span class="brand-tag">Salesforce</span>
+                    <span class="brand-tag">Cisco</span>
+                    <span class="brand-tag">T-Mobile</span>
+                    <span class="brand-tag">Amgen</span>
+                    <span class="brand-tag">Thermo Fisher</span>
+                    <span class="brand-tag">Estée Lauder</span>
+                    <span class="brand-tag">Target</span>
+                    <span class="brand-tag">Walmart</span>
+                    <span class="brand-tag">Klarna</span>
+                    <span class="brand-tag">BBVA</span>
+                    <span class="brand-tag">Moderna</span>
+                    <span class="brand-tag">Carlyle</span>
+                </div>
+                <!-- 第二排：向右捲動 -->
+                <div class="logo-marquee-row row-2">
+                    <span class="brand-tag">Canva</span>
+                    <span class="brand-tag">Block</span>
+                    <span class="brand-tag">Zapier</span>
+                    <span class="brand-tag">Publicis Groupe</span>
+                    <span class="brand-tag">Booking.com</span>
+                    <span class="brand-tag">Figma</span>
+                    <span class="brand-tag">Spotify</span>
+                    <span class="brand-tag">Zillow</span>
+                    <span class="brand-tag">Asana</span>
+                    <span class="brand-tag">Shopify</span>
+                    <span class="brand-tag">Stripe</span>
+                    <span class="brand-tag">PayPal</span>
+                    <span class="brand-tag">Ramp</span>
+                    <span class="brand-tag">Quizlet</span>
+                    <span class="brand-tag">Khan Academy</span>
+                    <!-- 重複以實現無縫循環 -->
+                    <span class="brand-tag">Canva</span>
+                    <span class="brand-tag">Block</span>
+                    <span class="brand-tag">Zapier</span>
+                    <span class="brand-tag">Publicis Groupe</span>
+                    <span class="brand-tag">Booking.com</span>
+                    <span class="brand-tag">Figma</span>
+                    <span class="brand-tag">Spotify</span>
+                    <span class="brand-tag">Zillow</span>
+                    <span class="brand-tag">Asana</span>
+                    <span class="brand-tag">Shopify</span>
+                    <span class="brand-tag">Stripe</span>
+                    <span class="brand-tag">PayPal</span>
+                    <span class="brand-tag">Ramp</span>
+                    <span class="brand-tag">Quizlet</span>
+                    <span class="brand-tag">Khan Academy</span>
+                </div>
+            </div>
+
+            <hr class="logo-divider">
+
+            <!-- ── 3×2 卡片網格（參照官網設計） ── -->
+            <div class="tg-wrapper">
+
+                <!-- 左欄大卡：引言 + 100% -->
+                <div class="tg-card tg-card-main">
+                    <div class="tg-brand">
+                        <img class="tg-logo-img"
+                             src="https://logo.clearbit.com/modernatx.com"
+                             alt="Moderna"
+                             onerror="this.outerHTML='<span class=\'brand-moderna\'>moderna</span>'">
+                    </div>
+                    <div class="tg-quote">
+                        「ChatGPT Enterprise 的淨推薦分數高到嚇人，是我們全公司迄今最滿意的解決方案。」
+                    </div>
+                    <div class="tg-author-name">Brice Challamel</div>
+                    <div class="tg-author-role">AI 產品與平台負責人</div>
+                    <div class="tg-stat-num">100%</div>
+                    <div class="tg-stat-label">ChatGPT Enterprise<br>用戶使用活躍率</div>
+                </div>
+
+                <!-- 右上 1：Estée Lauder + 10x -->
+                <div class="tg-card tg-card-sub">
+                    <div class="tg-brand">
+                        <img class="tg-logo-img"
+                             src="https://logo.clearbit.com/esteelauder.com"
+                             alt="Estée Lauder Companies"
+                             onerror="this.outerHTML='<div class=\'brand-estee\'>ESTÉE<br>LAUDER<br>COMPANIES</div>'">
+                    </div>
+                    <div>
+                        <div class="tg-stat-num-sub">10x</div>
+                        <div class="tg-stat-label">更快從研發取得產品洞察</div>
+                    </div>
+                </div>
+
+                <!-- 右上 2：San Antonio Spurs + 6x -->
+                <div class="tg-card tg-card-sub">
+                    <div class="tg-brand">
+                        <svg viewBox="0 0 130 46" xmlns="http://www.w3.org/2000/svg" height="38" style="display:block">
+                            <text x="1" y="14" font-family="Arial, sans-serif" font-size="9.5" font-weight="700" letter-spacing="3.5" fill="#1a1a1a">SAN ANTONIO</text>
+                            <text x="0" y="42" font-family="'Arial Black', Impact, sans-serif" font-size="27" font-weight="900" letter-spacing="3" fill="#1a1a1a">SPURS</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="tg-stat-num-sub">6x</div>
+                        <div class="tg-stat-label">AI 應用能力提升</div>
+                    </div>
+                </div>
+
+                <!-- 右下 1：BBVA + 83% -->
+                <div class="tg-card tg-card-sub">
+                    <div class="tg-brand">
+                        <img class="tg-logo-img"
+                             src="https://logo.clearbit.com/bbva.com"
+                             alt="BBVA"
+                             onerror="this.outerHTML='<span class=\'brand-bbva\'>BBVA</span>'">
+                    </div>
+                    <div>
+                        <div class="tg-stat-num-sub">83%</div>
+                        <div class="tg-stat-label">ChatGPT Enterprise 每週活躍用戶成長速度</div>
+                    </div>
+                </div>
+
+                <!-- 右下 2：Upwork + 98% -->
+                <div class="tg-card tg-card-sub">
+                    <div class="tg-brand">
+                        <img class="tg-logo-img"
+                             src="https://logo.clearbit.com/upwork.com"
+                             alt="Upwork"
+                             onerror="this.outerHTML='<span class=\'brand-upwork\'>upwork</span>'">
+                    </div>
+                    <div>
+                        <div class="tg-stat-num-sub">98%</div>
+                        <div class="tg-stat-label">員工偏好 ChatGPT Enterprise 勝於其他 AI 工具</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ── 資料來源 ── -->
+            <div class="source-line">
+                資料來源：<a href="https://chatgpt.com/business/enterprise" target="_blank">chatgpt.com</a>
+            </div>
+        </div>
+
+        <!-- 第 5 頁 -->
+        <div class="section">
+            <div class="section-header">
+                <div class="page-number">5</div>
+                <h2 class="section-title">跟 Microsoft Copilot / Gemini 差在哪</h2>
             </div>
 
             <div class="question-box">
                 <div class="question-icon">💭</div>
-                <div class="question-text">「那為什麼不是選 Microsoft？」</div>
+                <div class="question-text">「企業考量的情境是什麼？」</div>
             </div>
 
             <h3>定位差異：</h3>
@@ -820,11 +1328,11 @@
             </div>
         </div>
 
-        <!-- 第 5 頁 -->
+        <!-- 第 6 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">5</div>
-                <h2 class="section-title">導入後企業會經歷什麼流程？</h2>
+                <div class="page-number">6</div>
+                <h2 class="section-title">導入後企業會經歷什麼流程</h2>
             </div>
 
             <div class="question-box">
@@ -858,11 +1366,11 @@
             </div>
         </div>
 
-        <!-- 第 6 頁 -->
+        <!-- 第 7 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">6</div>
-                <h2 class="section-title">第一階段：治理對焦會做什麼？</h2>
+                <div class="page-number">7</div>
+                <h2 class="section-title">第一階段：治理對焦會做什麼</h2>
             </div>
 
             <div class="question-box">
@@ -903,10 +1411,10 @@
             </div>
         </div>
 
-        <!-- 第 7 頁 -->
+        <!-- 第 8 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">7</div>
+                <div class="page-number">8</div>
                 <h2 class="section-title">第二階段：系統設定與帳號開通</h2>
             </div>
 
@@ -937,10 +1445,10 @@
             </div>
         </div>
 
-        <!-- 第 8 頁 -->
+        <!-- 第 9 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">8</div>
+                <div class="page-number">9</div>
                 <h2 class="section-title">第三階段：顧問導入與流程改造</h2>
             </div>
 
@@ -984,11 +1492,11 @@
             </div>
         </div>
 
-        <!-- 第 9 頁 -->
+        <!-- 第 10 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">9</div>
-                <h2 class="section-title">與 HR / 教育訓練單位如何合作？</h2>
+                <div class="page-number">10</div>
+                <h2 class="section-title">與 HR / 教育訓練單位如何合作</h2>
             </div>
 
             <div class="question-box">
@@ -1021,10 +1529,10 @@
             </div>
         </div>
 
-        <!-- 第 10 頁 -->
+        <!-- 第 11 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">10</div>
+                <div class="page-number">11</div>
                 <h2 class="section-title">投資規模與實際成本（150 人）</h2>
             </div>
 
@@ -1072,10 +1580,10 @@
             </div>
         </div>
 
-        <!-- 第 11 頁 -->
+        <!-- 第 12 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">11</div>
+                <div class="page-number">12</div>
                 <h2 class="section-title">Enterprise 的現實申請機制</h2>
             </div>
 
@@ -1120,10 +1628,10 @@
             </div>
         </div>
 
-        <!-- 第 12 頁 -->
+        <!-- 第 13 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">12</div>
+                <div class="page-number">13</div>
                 <h2 class="section-title">TPIsoftware 的角色</h2>
             </div>
 
