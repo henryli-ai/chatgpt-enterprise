@@ -1185,6 +1185,136 @@
             .footer-bottom { padding: 16px 24px; }
         }
 
+        /* ── Before / After 比較 ── */
+        .ba-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 48px 1fr;
+            align-items: stretch;
+            gap: 0;
+            margin: 20px 0;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .ba-col {
+            padding: 24px 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .ba-before {
+            background: #FEF2F2;
+        }
+
+        .ba-after {
+            background: #ECFDF5;
+        }
+
+        .ba-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .ba-before .ba-label {
+            color: #DC2626;
+        }
+
+        .ba-after .ba-label {
+            color: #059669;
+        }
+
+        .ba-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .ba-before .ba-icon {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        .ba-after .ba-icon {
+            background: #D1FAE5;
+            color: #059669;
+        }
+
+        .ba-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ba-list li {
+            font-size: 14px;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            color: var(--text-secondary);
+        }
+
+        .ba-list li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 7px;
+        }
+
+        .ba-before .ba-list li::before {
+            background: #FCA5A5;
+        }
+
+        .ba-after .ba-list li::before {
+            background: #6EE7B7;
+        }
+
+        .ba-divider {
+            background: white;
+            border-left: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .ba-wrapper {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+
+            .ba-divider {
+                border-left: none;
+                border-right: none;
+                border-top: 1px solid var(--border);
+                border-bottom: 1px solid var(--border);
+                padding: 10px;
+                font-size: 20px;
+                transform: rotate(90deg);
+            }
+        }
+
         /* ── Print ── */
         @media print {
             body { background: white; }
@@ -1779,25 +1909,29 @@
                 導入成功關鍵在於工作流程改變，而不是工具使用熟練度。
             </div>
 
-            <div class="card card-emphasis">
-                <div class="card-title">Before / After 流程對照</div>
-                <div class="two-column" style="margin-top: 15px;">
-                    <div>
-                        <strong>導入前：</strong>
-                        <ul style="margin-top: 8px; padding-left: 20px;">
-                            <li>手動重複性工作</li>
-                            <li>資訊分散</li>
-                            <li>流程冗長</li>
-                        </ul>
+            <div class="ba-wrapper">
+                <div class="ba-col ba-before">
+                    <div class="ba-label">
+                        <span class="ba-icon">✕</span>
+                        導入前
                     </div>
-                    <div>
-                        <strong>導入後：</strong>
-                        <ul style="margin-top: 8px; padding-left: 20px;">
-                            <li>AI 協作自動化</li>
-                            <li>知識庫整合</li>
-                            <li>流程優化</li>
-                        </ul>
+                    <ul class="ba-list">
+                        <li>手動重複性工作</li>
+                        <li>資訊分散</li>
+                        <li>流程冗長</li>
+                    </ul>
+                </div>
+                <div class="ba-divider">→</div>
+                <div class="ba-col ba-after">
+                    <div class="ba-label">
+                        <span class="ba-icon">✓</span>
+                        導入後
                     </div>
+                    <ul class="ba-list">
+                        <li>AI 協作自動化</li>
+                        <li>知識庫整合</li>
+                        <li>流程優化</li>
+                    </ul>
                 </div>
             </div>
         </div>
