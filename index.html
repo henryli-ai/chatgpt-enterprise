@@ -6,19 +6,37 @@
     <title>ChatGPT Enterprise 企業導入介紹｜TPIsoftware</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #662E8D;
-            --primary-light: #7C4DB3;
-            --primary-lighter: #A68BE0;
-            --primary-pale: #D5CFFA;
-            --secondary: #8D98B1;
-            --dark: #252B3E;
-            --success: #28a745;
-            --warning: #dc3545;
-            --info: #17a2b8;
+            --primary:          #5B21B6;
+            --primary-light:    #7C3AED;
+            --primary-glow:     #8B5CF6;
+            --primary-pale:     #EDE9FE;
+            --primary-pale2:    #F5F3FF;
+            --accent:           #0EA5E9;
+            --accent-dark:      #0284C7;
+            --secondary:        #475569;
+            --success:          #059669;
+            --success-bg:       #ECFDF5;
+            --success-border:   #A7F3D0;
+            --warning:          #DC2626;
+            --warning-bg:       #FEF2F2;
+            --warning-border:   #FECACA;
+            --info:             #0284C7;
+            --info-bg:          #F0F9FF;
+            --info-border:      #BAE6FD;
+            --dark:             #0F172A;
+            --text-secondary:   #475569;
+            --text-muted:       #94A3B8;
+            --bg-base:          #FFFFFF;
+            --bg-subtle:        #F8FAFC;
+            --bg-muted:         #F1F5F9;
+            --border:           #E2E8F0;
+            --border-strong:    #CBD5E1;
         }
+
+        html { scroll-behavior: smooth; }
 
         * {
             margin: 0;
@@ -27,280 +45,460 @@
         }
 
         body {
-            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
             color: var(--dark);
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #FFFFFF;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px;
-        }
-
+        /* ── Header / Navbar ── */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            padding: 15px 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 0 40px;
+            height: 68px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 12px rgba(0,0,0,0.06);
         }
 
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 15px;
-        }
-
-        .logo-section .logo-box {
-            background: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 20px;
-            letter-spacing: 1px;
+            gap: 12px;
         }
 
         .logo-section img {
-            height: 45px;
-            max-width: 180px;
+            height: 38px;
+            max-width: 160px;
             object-fit: contain;
         }
 
-        .header-title {
-            flex: 1;
-            text-align: center;
+        .logo-text {
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--primary-light);
+            letter-spacing: -0.4px;
         }
 
-        .header-title h1 {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 4px;
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
         }
 
-        .header-title p {
+        .header-nav a {
             font-size: 14px;
-            opacity: 0.9;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
         }
 
+        .header-nav a:hover { color: var(--dark); }
+
+        .header-nav .nav-cta {
+            background: var(--primary-light);
+            color: white !important;
+            padding: 9px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .header-nav .nav-cta:hover {
+            background: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(124,58,237,0.3);
+        }
+
+        /* ── Hero Section ── */
+        .hero {
+            background: white;
+            padding: 80px 40px 88px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(91,33,182,0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(91,33,182,0.035) 1px, transparent 1px);
+            background-size: 44px 44px;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-pale), transparent);
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-pale);
+            color: var(--primary-light);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            padding: 6px 18px;
+            border-radius: 100px;
+            border: 1px solid #DDD6FE;
+            margin-bottom: 28px;
+        }
+
+        .hero-badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: inline-block;
+        }
+
+        .hero-title {
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.15;
+            background: linear-gradient(135deg, #3B0764 0%, #7C3AED 45%, #0EA5E9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 18px;
+        }
+
+        .hero-subtitle {
+            font-size: 17px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            letter-spacing: 0.3px;
+            font-style: italic;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .trust-badge::before {
+            content: '✓';
+            color: var(--primary-light);
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        /* ── Container ── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 32px 16px;
+        }
+
+        /* ── Section ── */
         .section {
             background: white;
-            border-radius: 10px;
-            padding: 25px 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            padding: 40px 48px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
             page-break-inside: avoid;
+            transition: box-shadow 0.25s;
         }
 
+        .section:hover {
+            box-shadow: 0 4px 24px rgba(91,33,182,0.06);
+        }
+
+        /* ── Section Header ── */
         .section-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 18px;
-            padding-bottom: 12px;
-            border-bottom: 3px solid var(--primary);
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
             page-break-after: avoid;
         }
 
-        .page-number {
-            background: var(--primary);
-            color: white;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: bold;
+        .section-tag {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--primary-light);
+            background: var(--primary-pale);
+            padding: 4px 13px;
+            border-radius: 100px;
+            white-space: nowrap;
             flex-shrink: 0;
+            border: 1px solid #DDD6FE;
         }
 
         .section-title {
-            font-size: 24px;
-            color: var(--primary);
-            font-weight: bold;
+            font-size: 23px;
+            color: var(--dark);
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            position: relative;
+            padding-left: 16px;
         }
 
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 75%;
+            background: linear-gradient(180deg, var(--primary-light), var(--accent));
+            border-radius: 2px;
+        }
+
+        /* ── Question Box ── */
         .question-box {
-            background: linear-gradient(135deg, var(--primary-pale) 0%, #f0edfa 100%);
-            border-left: 4px solid var(--primary);
-            padding: 14px 16px;
-            border-radius: 8px;
-            margin-bottom: 18px;
+            background: var(--primary-pale2);
+            border: 1px solid #DDD6FE;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             page-break-inside: avoid;
         }
 
         .question-icon {
-            font-size: 28px;
-            color: var(--primary);
+            font-size: 26px;
             flex-shrink: 0;
+            line-height: 1;
         }
 
         .question-text {
-            font-size: 17px;
+            font-size: 16px;
             color: var(--dark);
             font-weight: 600;
+            line-height: 1.5;
         }
 
+        /* ── Typography ── */
         h3 {
-            font-size: 19px;
-            color: var(--primary);
-            margin: 18px 0 12px 0;
-            font-weight: bold;
+            font-size: 17px;
+            color: var(--dark);
+            margin: 22px 0 12px 0;
+            font-weight: 700;
+            letter-spacing: -0.2px;
             page-break-after: avoid;
         }
 
         h4 {
-            font-size: 16px;
-            color: var(--dark);
-            margin: 15px 0 10px 0;
-            font-weight: bold;
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin: 16px 0 10px 0;
+            font-weight: 600;
             page-break-after: avoid;
         }
 
+        /* ── Bullet List ── */
         .bullet-list {
             list-style: none;
             padding-left: 0;
         }
 
         .bullet-list li {
-            padding: 6px 0 6px 28px;
+            padding: 7px 0 7px 22px;
             position: relative;
             font-size: 15px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .bullet-list li:before {
-            content: "▸";
-            color: var(--primary);
-            font-weight: bold;
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary-light);
             position: absolute;
-            left: 0;
-            font-size: 20px;
+            left: 4px;
+            top: 14px;
         }
 
+        /* ── Cards ── */
         .card {
-            border-radius: 8px;
-            padding: 12px 15px;
-            margin: 15px 0;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin: 16px 0;
             page-break-inside: avoid;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
 
         .card-emphasis {
-            background: linear-gradient(135deg, var(--primary-pale) 0%, #f5f3ff 100%);
-            border-left: 5px solid var(--primary);
+            border-top: 3px solid var(--primary-light);
+            background: var(--primary-pale2);
+            border-color: #DDD6FE;
+            border-top-color: var(--primary-light);
         }
 
         .card-success {
-            background: #d4edda;
-            border-left: 5px solid var(--success);
+            border-top: 3px solid var(--success);
+            background: var(--success-bg);
+            border-color: var(--success-border);
+            border-top-color: var(--success);
         }
 
         .card-warning {
-            background: #f8d7da;
-            border-left: 5px solid var(--warning);
+            border-top: 3px solid var(--warning);
+            background: var(--warning-bg);
+            border-color: var(--warning-border);
+            border-top-color: var(--warning);
         }
 
         .card-info {
-            background: #d1ecf1;
-            border-left: 5px solid var(--info);
+            border-top: 3px solid var(--info);
+            background: var(--info-bg);
+            border-color: var(--info-border);
+            border-top-color: var(--info);
         }
 
         .card-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
             color: var(--dark);
         }
 
+        /* ── Tables ── */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 15px 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-            page-break-inside: avoid;
+            margin: 16px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
             font-size: 14px;
+            page-break-inside: avoid;
         }
 
         table th {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            background: #1E293B;
             color: white;
-            padding: 10px 12px;
+            padding: 13px 16px;
             text-align: left;
-            font-weight: bold;
-            font-size: 15px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.3px;
         }
 
         table td {
-            padding: 9px 12px;
-            border-bottom: 1px solid #e0e0e0;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
             font-size: 14px;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        table tr:nth-child(even) {
-            background: #f9f9f9;
+        table tr:last-child td { border-bottom: none; }
+
+        table tr:nth-child(even) td {
+            background: var(--bg-subtle);
         }
 
-        table tr:hover {
+        table tr:hover td {
             background: var(--primary-pale);
+            transition: background 0.15s;
         }
 
+        /* ── Grid Layouts ── */
         .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 15px 0;
+            gap: 16px;
+            margin: 16px 0;
         }
 
         .three-column {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 15px;
-            margin: 15px 0;
+            gap: 16px;
+            margin: 16px 0;
         }
 
+        /* ── Flow Diagram ── */
         .flow-diagram {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            margin: 18px 0;
-            padding: 18px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
-            border-radius: 8px;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 20px 24px;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             page-break-inside: avoid;
         }
 
         .flow-box {
             background: white;
-            padding: 14px 18px;
-            border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-            font-weight: bold;
-            color: var(--primary);
+            padding: 14px 20px;
+            border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            font-weight: 600;
+            color: var(--primary-light);
             text-align: center;
             flex: 1;
-            border: 2px solid var(--primary);
+            border: 1.5px solid #DDD6FE;
             font-size: 14px;
+            line-height: 1.4;
+            transition: box-shadow 0.2s;
         }
 
         .flow-arrow {
-            font-size: 20px;
-            color: var(--primary);
-            font-weight: bold;
+            font-size: 18px;
+            color: var(--text-muted);
             flex-shrink: 0;
+            font-weight: 300;
         }
 
+        /* ── Numbered Steps ── */
         .numbered-steps {
             counter-reset: step-counter;
             list-style: none;
@@ -309,178 +507,262 @@
 
         .numbered-steps li {
             counter-increment: step-counter;
-            padding: 8px 0 8px 42px;
+            padding: 8px 0 8px 40px;
             position: relative;
             font-size: 15px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .numbered-steps li:before {
             content: counter(step-counter);
-            background: var(--primary);
+            background: var(--primary-light);
             color: white;
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             position: absolute;
             left: 0;
-            font-weight: bold;
-            top: 6px;
-            font-size: 14px;
+            font-weight: 700;
+            top: 9px;
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
         }
 
+        /* ── Timeline ── */
         .timeline {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
-            padding: 18px;
-            border-radius: 8px;
-            margin: 15px 0;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 16px 0;
             page-break-inside: avoid;
         }
 
         .timeline-item {
             background: white;
-            padding: 14px 16px;
+            padding: 16px 20px;
             margin: 12px 0;
-            border-left: 4px solid var(--primary);
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 3px solid var(--primary-light);
+            border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
             page-break-inside: avoid;
         }
 
         .timeline-item h4 {
             margin-top: 0;
-            color: var(--primary);
-            margin-bottom: 6px;
+            color: var(--primary-light);
+            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: 700;
         }
 
         .timeline-item p {
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.6;
             margin: 0;
+            color: var(--text-secondary);
         }
 
+        /* ── Highlight Text ── */
         .highlight-text {
-            background: linear-gradient(135deg, var(--primary-pale) 0%, transparent 100%);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: bold;
-            color: var(--primary);
+            background: var(--primary-pale);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 700;
+            color: var(--primary-light);
         }
 
+        /* ── Key Point ── */
         .key-point {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, #4338CA 100%);
             color: white;
-            padding: 14px 18px;
-            border-radius: 8px;
-            margin: 18px 0;
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin: 20px 0;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 600;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(102, 46, 141, 0.25);
+            box-shadow: 0 4px 24px rgba(91,33,182,0.22);
             page-break-inside: avoid;
+            line-height: 1.6;
         }
 
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 20px;
+        /* ── CTA Section ── */
+        .cta-section {
+            background: linear-gradient(135deg, #3B0764 0%, #1E1B4B 55%, #0C4A6E 100%);
+            padding: 88px 40px;
             text-align: center;
-            margin-top: 30px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 44px 44px;
+            pointer-events: none;
+        }
+
+        .cta-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .cta-eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #A78BFA;
+            margin-bottom: 16px;
+        }
+
+        .cta-title {
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1.3;
+            letter-spacing: -0.8px;
+            margin-bottom: 16px;
+        }
+
+        .cta-desc {
+            font-size: 16px;
+            color: #C4B5FD;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta-primary {
+            background: white;
+            color: var(--primary);
+            padding: 14px 36px;
             border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            letter-spacing: -0.1px;
+        }
+
+        .btn-cta-primary:hover {
+            background: #F5F3FF;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.22);
+        }
+
+        .btn-cta-secondary {
+            background: transparent;
+            color: white;
+            padding: 14px 36px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-block;
+            border: 1.5px solid rgba(255,255,255,0.3);
+            transition: all 0.2s;
+        }
+
+        .btn-cta-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.55);
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: #0F172A;
+            color: white;
+            padding: 0;
             page-break-before: avoid;
         }
 
-        footer p {
-            margin: 4px 0;
-            opacity: 0.9;
-            font-size: 14px;
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 52px 40px 36px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 48px;
+            align-items: start;
         }
 
-        .tagline {
+        .footer-brand-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.4px;
+            margin-bottom: 8px;
+        }
+
+        .footer-tagline {
             font-style: italic;
-            color: var(--primary-lighter);
-            margin-top: 8px;
+            color: #94A3B8;
+            font-size: 13px;
+            margin-bottom: 16px;
+            line-height: 1.6;
         }
 
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-                gap: 12px;
-                padding: 15px;
-            }
+        .footer-desc {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.8;
+        }
 
-            .logo-section {
-                justify-content: center;
-            }
+        .footer-col-title {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #64748B;
+            margin-bottom: 16px;
+        }
 
-            .header-title h1 {
-                font-size: 20px;
-            }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-            .header-title p {
-                font-size: 13px;
-            }
+        .footer-link {
+            color: #94A3B8;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+            line-height: 1.5;
+        }
 
-            .section {
-                padding: 18px 15px;
-            }
+        .footer-link:hover { color: white; }
 
-            .section-title {
-                font-size: 18px;
-            }
+        .footer-bottom {
+            border-top: 1px solid #1E293B;
+            padding: 20px 40px;
+            text-align: center;
+            max-width: 100%;
+        }
 
-            .page-number {
-                width: 34px;
-                height: 34px;
-                font-size: 15px;
-            }
-
-            .question-text {
-                font-size: 15px;
-            }
-
-            h3 {
-                font-size: 16px;
-            }
-
-            .two-column,
-            .three-column {
-                grid-template-columns: 1fr;
-            }
-
-            .flow-diagram {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .flow-arrow {
-                transform: rotate(90deg);
-            }
-
-            .flow-box {
-                width: 100%;
-                flex: none;
-            }
-
-            table {
-                display: block;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .key-point {
-                font-size: 14px;
-                padding: 12px 14px;
-            }
-
-            footer {
-                border-radius: 0;
-                margin-top: 20px;
-            }
+        .footer-bottom p {
+            font-size: 12px;
+            color: #334155;
+            margin: 0;
         }
 
         /* ── 第 4 頁：品牌信任頁面 ── */
@@ -500,10 +782,12 @@
             z-index: 2;
             pointer-events: none;
         }
+
         .logo-marquee-section::before {
             left: 0;
             background: linear-gradient(to right, white 60%, transparent);
         }
+
         .logo-marquee-section::after {
             right: 0;
             background: linear-gradient(to left, white 60%, transparent);
@@ -515,6 +799,7 @@
             margin-bottom: 10px;
             width: max-content;
         }
+
         .logo-marquee-row.row-1 { animation: marquee-left 38s linear infinite; }
         .logo-marquee-row.row-2 { animation: marquee-right 38s linear infinite; }
 
@@ -522,89 +807,99 @@
             0%   { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+
         @keyframes marquee-right {
             0%   { transform: translateX(-50%); }
             100% { transform: translateX(0); }
         }
 
         .brand-tag {
-            background: #f5f5f7;
-            border: 1px solid #e0e0e4;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
             border-radius: 8px;
             padding: 0 18px;
             font-size: 13px;
             font-weight: 700;
-            color: #2c2c2c;
+            color: var(--text-secondary);
             letter-spacing: 0.3px;
             white-space: nowrap;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             height: 46px;
-            transition: background 0.2s, border-color 0.2s;
+            transition: all 0.2s;
         }
+
         .brand-tag:hover {
             background: var(--primary-pale);
-            border-color: var(--primary-lighter);
+            border-color: #DDD6FE;
+            color: var(--primary-light);
         }
 
         .logo-divider {
             border: none;
-            border-top: 2px solid #f0edf8;
+            border-top: 1px solid var(--border);
             margin: 20px 0;
         }
 
+        /* ── Testimonial (old style, still used) ── */
         .testimonial-card {
-            background: linear-gradient(135deg, var(--primary-pale) 0%, #f5f3ff 100%);
-            border-left: 5px solid var(--primary);
-            border-radius: 10px;
-            padding: 18px 22px;
-            margin-bottom: 20px;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
             display: flex;
             align-items: flex-start;
             gap: 16px;
         }
+
         .testimonial-quote-mark {
-            font-size: 56px;
-            color: var(--primary);
+            font-size: 52px;
+            color: var(--primary-light);
             line-height: 0.75;
             font-family: Georgia, 'Times New Roman', serif;
             flex-shrink: 0;
             margin-top: 10px;
-            opacity: 0.7;
+            opacity: 0.35;
         }
+
         .testimonial-quote-text {
             font-size: 15px;
             font-style: italic;
-            color: var(--dark);
-            line-height: 1.75;
-            margin-bottom: 10px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 12px;
         }
+
         .testimonial-author {
-            font-weight: bold;
-            color: var(--primary);
+            font-weight: 700;
+            color: var(--dark);
             font-size: 14px;
         }
+
         .testimonial-role {
             font-size: 12px;
-            color: var(--secondary);
+            color: var(--text-muted);
             margin-top: 2px;
         }
 
+        /* ── Stats ── */
         .stats-section-title {
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 15px;
+            font-weight: 700;
             color: var(--dark);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
+
         .stats-section-title::after {
             content: '';
             flex: 1;
             height: 1px;
-            background: #e0d9f5;
+            background: var(--border);
         }
 
         .stats-grid {
@@ -612,73 +907,86 @@
             grid-template-columns: repeat(5, 1fr);
             gap: 12px;
         }
+
         .stat-item {
             background: white;
-            border: 1.5px solid #ede9fa;
-            border-radius: 10px;
-            padding: 16px 8px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 10px 16px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(102,46,141,0.06);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             position: relative;
             overflow: hidden;
         }
+
         .stat-item::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            background: linear-gradient(90deg, var(--primary-light), var(--accent));
         }
+
         .stat-number {
-            font-size: 30px;
+            font-size: 32px;
             font-weight: 900;
-            color: var(--primary);
+            color: var(--primary-light);
             line-height: 1.1;
-            margin-bottom: 7px;
+            margin-bottom: 8px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -1px;
         }
+
         .stat-label {
-            font-size: 11.5px;
-            color: #555;
-            line-height: 1.45;
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
         }
 
         .source-line {
             text-align: center;
-            font-size: 11.5px;
-            color: #aaa;
+            font-size: 12px;
+            color: var(--text-muted);
             margin-top: 18px;
-            padding-top: 12px;
-            border-top: 1px solid #eee;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
             letter-spacing: 0.2px;
         }
+
         .source-line a {
             color: var(--primary-light);
             text-decoration: none;
             font-weight: 600;
         }
 
-        /* ── Testimonial Grid（圖片風格 3×2 卡片） ── */
+        .source-line a:hover { text-decoration: underline; }
+
+        /* ── Testimonial Grid（3×2 卡片） ── */
         .tg-wrapper {
-            background: #e6e6e4;
-            border-radius: 14px;
+            background: var(--border);
+            border-radius: 16px;
             display: grid;
             grid-template-columns: 1.45fr 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            gap: 3px;
+            gap: 2px;
             overflow: hidden;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
+
         .tg-card {
-            background: #f8f8f6;
-            padding: 22px 24px;
+            background: var(--bg-subtle);
+            padding: 24px 26px;
             display: flex;
             flex-direction: column;
         }
+
         .tg-card-main {
             grid-row: 1 / 3;
-            padding: 26px 28px;
+            padding: 28px 30px;
             justify-content: flex-start;
+            background: white;
         }
+
         .tg-card-sub { justify-content: space-between; }
 
         .tg-brand {
@@ -687,6 +995,7 @@
             display: flex;
             align-items: flex-start;
         }
+
         .tg-logo-img {
             height: 38px;
             max-width: 150px;
@@ -694,7 +1003,7 @@
             object-position: left center;
             display: block;
         }
-        /* 圖片載入失敗時的文字 fallback */
+
         .brand-moderna {
             font-size: 18px;
             font-weight: 600;
@@ -705,6 +1014,7 @@
             padding-bottom: 3px;
             font-family: Georgia, 'Times New Roman', serif;
         }
+
         .brand-estee {
             font-size: 10px;
             font-weight: 800;
@@ -713,11 +1023,13 @@
             letter-spacing: 1.8px;
             line-height: 1.35;
         }
+
         .brand-spurs-wrap {
             display: inline-flex;
             flex-direction: column;
             align-items: flex-start;
         }
+
         .brand-spurs-top {
             font-size: 9px;
             font-weight: 700;
@@ -725,6 +1037,7 @@
             letter-spacing: 3px;
             text-transform: uppercase;
         }
+
         .brand-spurs-main {
             font-size: 22px;
             font-weight: 900;
@@ -734,6 +1047,7 @@
             line-height: 1;
             font-family: 'Arial Black', 'Impact', sans-serif;
         }
+
         .brand-bbva {
             font-size: 26px;
             font-weight: 900;
@@ -741,6 +1055,7 @@
             letter-spacing: 1px;
             font-family: 'Arial Black', sans-serif;
         }
+
         .brand-upwork {
             font-size: 22px;
             font-weight: 700;
@@ -750,217 +1065,201 @@
         }
 
         .tg-quote {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 700;
-            color: #0d0d0d;
-            line-height: 1.55;
+            color: var(--dark);
+            line-height: 1.6;
             flex: 1;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
+
         .tg-author-name {
             font-size: 13px;
             font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 1px;
-        }
-        .tg-author-role {
-            font-size: 12px;
-            color: #888;
-            margin-bottom: 22px;
-        }
-        .tg-stat-num {
-            font-size: 42px;
-            font-weight: 900;
-            color: #0d0d0d;
-            line-height: 1;
-            margin-bottom: 5px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            letter-spacing: -1px;
-        }
-        .tg-stat-label {
-            font-size: 12px;
-            color: #666;
-            line-height: 1.45;
-        }
-        .tg-stat-num-sub {
-            font-size: 36px;
-            font-weight: 900;
-            color: #0d0d0d;
-            line-height: 1;
-            margin-bottom: 5px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            letter-spacing: -1px;
+            color: var(--dark);
+            margin-bottom: 2px;
         }
 
+        .tg-author-role {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .tg-stat-num {
+            font-size: 44px;
+            font-weight: 900;
+            color: var(--primary-light);
+            line-height: 1;
+            margin-bottom: 6px;
+            font-family: 'Inter', -apple-system, sans-serif;
+            letter-spacing: -2px;
+        }
+
+        .tg-stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .tg-stat-num-sub {
+            font-size: 38px;
+            font-weight: 900;
+            color: var(--primary-light);
+            line-height: 1;
+            margin-bottom: 6px;
+            font-family: 'Inter', -apple-system, sans-serif;
+            letter-spacing: -1.5px;
+        }
+
+        /* ── Responsive ── */
         @media (max-width: 768px) {
+            header {
+                padding: 0 20px;
+            }
+
+            .header-nav a:not(.nav-cta) { display: none; }
+
+            .hero { padding: 52px 24px 60px; }
+
+            .hero-title { font-size: 34px; letter-spacing: -1px; }
+
+            .hero-subtitle { font-size: 15px; }
+
+            .container { padding: 24px 16px 12px; }
+
+            .section { padding: 24px 20px; }
+
+            .section-title { font-size: 18px; }
+
+            .section-header { gap: 10px; }
+
+            .question-text { font-size: 14px; }
+
+            h3 { font-size: 15px; }
+
+            .two-column,
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-diagram {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .flow-arrow { transform: rotate(90deg); }
+
+            .flow-box { width: 100%; flex: none; }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .key-point { font-size: 14px; padding: 14px 16px; }
+
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+
             .tg-wrapper {
                 grid-template-columns: 1fr;
                 grid-template-rows: auto;
             }
+
             .tg-card-main { grid-row: auto; }
+
             .logo-marquee-section::before,
             .logo-marquee-section::after { width: 36px; }
+
+            .cta-section { padding: 64px 24px; }
+
+            .cta-title { font-size: 26px; }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 40px 24px 28px;
+            }
+
+            .footer-bottom { padding: 16px 24px; }
         }
 
+        /* ── Print ── */
         @media print {
-            body {
-                background: white;
+            body { background: white; }
+
+            header {
+                position: static;
+                box-shadow: none;
+                border-bottom: 1px solid #E2E8F0;
+                padding: 10px 20px;
             }
 
-            @page {
-                size: A4;
-                margin: 1cm 1.2cm;
-            }
+            .header-nav { display: none; }
 
-            .container {
-                padding: 0;
-            }
+            .hero { padding: 32px 20px; border-bottom: 1px solid #E2E8F0; }
+
+            .hero-title { font-size: 32px; }
+
+            .hero::before { display: none; }
+
+            @page { size: A4; margin: 1cm 1.2cm; }
+
+            .container { padding: 0; }
 
             .section {
                 page-break-inside: auto;
-                margin-bottom: 15px;
+                margin-bottom: 14px;
                 box-shadow: none;
-                padding: 20px 25px;
-                border: 1px solid #e0e0e0;
+                padding: 20px 24px;
+                border: 1px solid #E2E8F0;
+                border-radius: 8px;
             }
 
-            header {
-                padding: 12px 20px;
-                margin-bottom: 15px;
-            }
+            .section:hover { box-shadow: none; }
 
-            .header-title h1 {
-                font-size: 24px;
-            }
+            .section-title { font-size: 19px; }
 
-            .header-title p {
-                font-size: 12px;
-            }
+            h3 { font-size: 15px; margin: 12px 0 8px 0; }
 
-            .section-header {
-                margin-bottom: 12px;
-                padding-bottom: 8px;
-            }
+            h4 { font-size: 13px; margin: 10px 0 6px 0; }
 
-            .section-title {
-                font-size: 20px;
-            }
+            .question-box { padding: 10px 14px; margin-bottom: 12px; }
 
-            .page-number {
-                width: 36px;
-                height: 36px;
-                font-size: 16px;
-            }
+            .question-text { font-size: 14px; }
 
-            h3 {
-                font-size: 16px;
-                margin: 12px 0 8px 0;
-            }
-
-            h4 {
-                font-size: 14px;
-                margin: 10px 0 6px 0;
-            }
-
-            .question-box {
-                padding: 10px 12px;
-                margin-bottom: 12px;
-            }
-
-            .question-text {
-                font-size: 15px;
-            }
-
-            .question-icon {
-                font-size: 24px;
-            }
+            .question-icon { font-size: 20px; }
 
             .bullet-list li,
-            .numbered-steps li {
-                padding: 4px 0 4px 28px;
-                font-size: 13px;
-            }
+            .numbered-steps li { padding: 4px 0 4px 22px; font-size: 13px; }
 
-            .card {
-                padding: 10px 12px;
-                margin: 10px 0;
-                page-break-inside: avoid;
-            }
+            .card { padding: 10px 14px; margin: 10px 0; }
 
-            .card-title {
-                font-size: 14px;
-                margin-bottom: 6px;
-            }
+            .card-title { font-size: 13px; margin-bottom: 6px; }
 
-            table {
-                font-size: 12px;
-                margin: 10px 0;
-                page-break-inside: avoid;
-            }
+            table { font-size: 12px; margin: 10px 0; }
 
-            table th {
-                padding: 8px 10px;
-                font-size: 13px;
-            }
+            table th { padding: 8px 10px; font-size: 12px; }
 
-            table td {
-                padding: 6px 10px;
-                font-size: 12px;
-            }
+            table td { padding: 6px 10px; font-size: 12px; }
 
-            .timeline {
-                padding: 12px;
-                margin: 10px 0;
-                page-break-inside: avoid;
-            }
+            .timeline { padding: 12px; margin: 10px 0; }
 
-            .timeline-item {
-                padding: 10px 12px;
-                margin: 8px 0;
-                page-break-inside: avoid;
-            }
+            .timeline-item { padding: 10px 14px; margin: 8px 0; }
 
-            .timeline-item h4 {
-                font-size: 13px;
-            }
+            .timeline-item h4 { font-size: 13px; }
 
-            .timeline-item p {
-                font-size: 12px;
-            }
+            .timeline-item p { font-size: 12px; }
 
-            .flow-diagram {
-                padding: 12px;
-                margin: 12px 0;
-                page-break-inside: avoid;
-            }
+            .flow-diagram { padding: 12px; margin: 12px 0; }
 
-            .flow-box {
-                padding: 10px 12px;
-                font-size: 12px;
-            }
+            .flow-box { padding: 10px 12px; font-size: 12px; }
 
-            .key-point {
-                padding: 10px 14px;
-                font-size: 14px;
-                margin: 12px 0;
-                page-break-inside: avoid;
-            }
+            .key-point { padding: 10px 14px; font-size: 13px; margin: 12px 0; }
 
             .two-column,
-            .three-column {
-                gap: 10px;
-                margin: 10px 0;
-            }
-
-            footer {
-                padding: 15px;
-                margin-top: 20px;
-                page-break-before: avoid;
-            }
-
-            footer p {
-                font-size: 12px;
-            }
+            .three-column { gap: 10px; margin: 10px 0; }
 
             .logo-marquee-row { animation: none !important; }
             .logo-marquee-row.row-2 { transform: translateX(-50%); }
@@ -968,40 +1267,61 @@
             .logo-marquee-section::before,
             .logo-marquee-section::after { display: none; }
             .brand-tag { height: 36px; padding: 0 12px; font-size: 11px; }
-            .tg-wrapper { gap: 2px; border-radius: 10px; }
-            .tg-card { padding: 16px 18px; }
-            .tg-card-main { padding: 18px 20px; }
-            .tg-logo-img { height: 28px; max-width: 120px; }
-            .tg-quote { font-size: 14px; margin-bottom: 10px; }
-            .tg-stat-num { font-size: 30px; }
-            .tg-stat-num-sub { font-size: 26px; }
-            .tg-stat-label { font-size: 10.5px; }
-            .tg-author-role { margin-bottom: 14px; }
-            .brand-moderna { font-size: 14px; }
-            .brand-bbva { font-size: 20px; }
-            .brand-upwork { font-size: 17px; }
-            .brand-spurs-main { font-size: 17px; }
-            .source-line { font-size: 11px; margin-top: 12px; }
+            .tg-wrapper { gap: 2px; border-radius: 8px; }
+            .tg-card { padding: 14px 16px; }
+            .tg-card-main { padding: 16px 18px; }
+            .tg-logo-img { height: 26px; max-width: 110px; }
+            .tg-quote { font-size: 13px; margin-bottom: 8px; }
+            .tg-stat-num { font-size: 28px; }
+            .tg-stat-num-sub { font-size: 24px; }
+            .tg-stat-label { font-size: 10px; }
+            .tg-author-role { margin-bottom: 12px; }
+            .source-line { font-size: 10px; margin-top: 10px; }
+            .cta-section { display: none; }
+            footer { background: #1E293B; padding: 20px; }
+            .footer-inner { grid-template-columns: 1fr; gap: 12px; padding: 16px; }
+            .footer-bottom { padding: 12px; }
         }
     </style>
-
 </head>
 <body>
+
+    <!-- ── Navbar ── -->
     <header>
         <div class="logo-section">
-            <div class="logo-box">TPIsoftware</div>
+            <img src="images/tpi-logo.png" alt="TPIsoftware"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'">
+            <span class="logo-text" style="display:none">TPIsoftware</span>
         </div>
-        <div class="header-title">
-            <h1>ChatGPT Enterprise 企業導入介紹</h1>
-            <p>Your AI Partner for Mission-Critical Success</p>
-        </div>
+        <nav class="header-nav">
+            <a href="https://www.tpisoftware.com" target="_blank">關於 TPIsoftware</a>
+            <a href="https://www.tpisoftware.com/contact" target="_blank" class="nav-cta">聯絡我們</a>
+        </nav>
     </header>
 
+    <!-- ── Hero ── -->
+    <div class="hero">
+        <div class="hero-inner">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                ChatGPT Enterprise × TPIsoftware
+            </div>
+            <h1 class="hero-title">企業 AI 的下一步<br>從導入到落地</h1>
+            <p class="hero-subtitle">Your AI Partner for Mission-Critical Success</p>
+            <div class="trust-badges">
+                <span class="trust-badge">OpenAI 官方合作夥伴</span>
+                <span class="trust-badge">端對端顧問服務</span>
+                <span class="trust-badge">完整治理框架</span>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
+
         <!-- 第 1 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">1</div>
+                <span class="section-tag">AI 趨勢</span>
                 <h2 class="section-title">我們為什麼要正式討論 AI 平台</h2>
             </div>
 
@@ -1022,14 +1342,14 @@
                 <div class="flow-arrow">→</div>
                 <div class="flow-box">部門嘗試</div>
                 <div class="flow-arrow">→</div>
-                <div class="flow-box" style="background: var(--primary); color: white;">企業級治理<br><small>（現在的位置）</small></div>
+                <div class="flow-box" style="background: var(--primary); color: white; border-color: var(--primary);">企業級治理<br><small>（現在的位置）</small></div>
             </div>
         </div>
 
         <!-- 第 2 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">2</div>
+                <span class="section-tag">產品介紹</span>
                 <h2 class="section-title">什麼是 ChatGPT Enterprise</h2>
             </div>
 
@@ -1065,7 +1385,7 @@
         <!-- 第 3 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">3</div>
+                <span class="section-tag">版本比較</span>
                 <h2 class="section-title">跟一般 ChatGPT 有什麼差別</h2>
             </div>
 
@@ -1121,18 +1441,17 @@
             </ul>
         </div>
 
-        <!-- 第 4 頁（新）：信任頁 -->
+        <!-- 第 4 頁：信任頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">4</div>
+                <span class="section-tag">客戶信任</span>
                 <h2 class="section-title">深獲各界領袖與團隊信賴</h2>
             </div>
 
-            <p style="font-size:14px;color:var(--secondary);margin-bottom:14px;">全球各產業龍頭企業已選擇 ChatGPT Enterprise，覆蓋金融、科技、醫療、零售、顧問等核心領域。</p>
+            <p style="font-size:14px;color:var(--text-secondary);margin-bottom:14px;">全球各產業龍頭企業已選擇 ChatGPT Enterprise，覆蓋金融、科技、醫療、零售、顧問等核心領域。</p>
 
-            <!-- ── 雙排捲動 Logo 帶 ── -->
+            <!-- 雙排捲動 Logo 帶 -->
             <div class="logo-marquee-section">
-                <!-- 第一排：向左捲動 -->
                 <div class="logo-marquee-row row-1">
                     <span class="brand-tag">Morgan Stanley</span>
                     <span class="brand-tag">Goldman Sachs</span>
@@ -1149,7 +1468,6 @@
                     <span class="brand-tag">BBVA</span>
                     <span class="brand-tag">Moderna</span>
                     <span class="brand-tag">Carlyle</span>
-                    <!-- 重複以實現無縫循環 -->
                     <span class="brand-tag">Morgan Stanley</span>
                     <span class="brand-tag">Goldman Sachs</span>
                     <span class="brand-tag">PwC</span>
@@ -1166,7 +1484,6 @@
                     <span class="brand-tag">Moderna</span>
                     <span class="brand-tag">Carlyle</span>
                 </div>
-                <!-- 第二排：向右捲動 -->
                 <div class="logo-marquee-row row-2">
                     <span class="brand-tag">Canva</span>
                     <span class="brand-tag">Block</span>
@@ -1183,7 +1500,6 @@
                     <span class="brand-tag">Ramp</span>
                     <span class="brand-tag">Quizlet</span>
                     <span class="brand-tag">Khan Academy</span>
-                    <!-- 重複以實現無縫循環 -->
                     <span class="brand-tag">Canva</span>
                     <span class="brand-tag">Block</span>
                     <span class="brand-tag">Zapier</span>
@@ -1204,10 +1520,9 @@
 
             <hr class="logo-divider">
 
-            <!-- ── 3×2 卡片網格（參照官網設計） ── -->
+            <!-- 3×2 卡片網格 -->
             <div class="tg-wrapper">
 
-                <!-- 左欄大卡：引言 + 100% -->
                 <div class="tg-card tg-card-main">
                     <div class="tg-brand">
                         <img class="tg-logo-img"
@@ -1224,7 +1539,6 @@
                     <div class="tg-stat-label">ChatGPT Enterprise<br>用戶使用活躍率</div>
                 </div>
 
-                <!-- 右上 1：Estée Lauder + 10x -->
                 <div class="tg-card tg-card-sub">
                     <div class="tg-brand">
                         <img class="tg-logo-img"
@@ -1238,7 +1552,6 @@
                     </div>
                 </div>
 
-                <!-- 右上 2：San Antonio Spurs + 6x -->
                 <div class="tg-card tg-card-sub">
                     <div class="tg-brand">
                         <svg viewBox="0 0 130 46" xmlns="http://www.w3.org/2000/svg" height="38" style="display:block">
@@ -1252,7 +1565,6 @@
                     </div>
                 </div>
 
-                <!-- 右下 1：BBVA + 83% -->
                 <div class="tg-card tg-card-sub">
                     <div class="tg-brand">
                         <img class="tg-logo-img"
@@ -1266,7 +1578,6 @@
                     </div>
                 </div>
 
-                <!-- 右下 2：Upwork + 98% -->
                 <div class="tg-card tg-card-sub">
                     <div class="tg-brand">
                         <img class="tg-logo-img"
@@ -1282,7 +1593,6 @@
 
             </div>
 
-            <!-- ── 資料來源 ── -->
             <div class="source-line">
                 資料來源：<a href="https://chatgpt.com/business/enterprise" target="_blank">chatgpt.com</a>
             </div>
@@ -1291,7 +1601,7 @@
         <!-- 第 5 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">5</div>
+                <span class="section-tag">競品定位</span>
                 <h2 class="section-title">跟 Microsoft Copilot / Gemini 差在哪</h2>
             </div>
 
@@ -1331,7 +1641,7 @@
         <!-- 第 6 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">6</div>
+                <span class="section-tag">導入流程</span>
                 <h2 class="section-title">導入後企業會經歷什麼流程</h2>
             </div>
 
@@ -1369,7 +1679,7 @@
         <!-- 第 7 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">7</div>
+                <span class="section-tag">階段一</span>
                 <h2 class="section-title">第一階段：治理對焦會做什麼</h2>
             </div>
 
@@ -1414,7 +1724,7 @@
         <!-- 第 8 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">8</div>
+                <span class="section-tag">階段二</span>
                 <h2 class="section-title">第二階段：系統設定與帳號開通</h2>
             </div>
 
@@ -1448,7 +1758,7 @@
         <!-- 第 9 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">9</div>
+                <span class="section-tag">階段三</span>
                 <h2 class="section-title">第三階段：顧問導入與流程改造</h2>
             </div>
 
@@ -1495,7 +1805,7 @@
         <!-- 第 10 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">10</div>
+                <span class="section-tag">人才發展</span>
                 <h2 class="section-title">與 HR / 教育訓練單位如何合作</h2>
             </div>
 
@@ -1517,7 +1827,7 @@
 
             <div class="card card-info">
                 <div class="card-title">HR 整合流程</div>
-                <div class="flow-diagram" style="background: transparent; padding: 15px 0;">
+                <div class="flow-diagram" style="background: transparent; padding: 15px 0; border: none;">
                     <div class="flow-box" style="border-color: var(--info);">新人訓練</div>
                     <div class="flow-arrow">→</div>
                     <div class="flow-box" style="border-color: var(--info);">主管培訓</div>
@@ -1532,7 +1842,7 @@
         <!-- 第 11 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">11</div>
+                <span class="section-tag">成本分析</span>
                 <h2 class="section-title">投資規模與實際成本（150 人）</h2>
             </div>
 
@@ -1583,7 +1893,7 @@
         <!-- 第 12 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">12</div>
+                <span class="section-tag">申請機制</span>
                 <h2 class="section-title">Enterprise 的現實申請機制</h2>
             </div>
 
@@ -1631,7 +1941,7 @@
         <!-- 第 13 頁 -->
         <div class="section">
             <div class="section-header">
-                <div class="page-number">13</div>
+                <span class="section-tag">夥伴服務</span>
                 <h2 class="section-title">TPIsoftware 的角色</h2>
             </div>
 
@@ -1655,20 +1965,64 @@
             </div>
 
             <h3>三層角色圖：</h3>
-            <div class="flow-diagram" style="flex-direction: column;">
-                <div class="flow-box" style="width: 80%;">OpenAI 原廠</div>
-                <div class="flow-arrow" style="transform: rotate(90deg); margin: 10px 0;">→</div>
-                <div class="flow-box" style="width: 80%; background: var(--primary); color: white;">TPI 顧問橋接</div>
-                <div class="flow-arrow" style="transform: rotate(90deg); margin: 10px 0;">→</div>
-                <div class="flow-box" style="width: 80%;">企業組織落地</div>
+            <div class="flow-diagram" style="flex-direction: column; gap: 6px;">
+                <div class="flow-box" style="width: 75%; max-width: 380px;">OpenAI 原廠</div>
+                <div class="flow-arrow" style="transform: rotate(90deg); margin: 6px 0;">→</div>
+                <div class="flow-box" style="width: 75%; max-width: 380px; background: var(--primary); color: white; border-color: var(--primary);">TPI 顧問橋接</div>
+                <div class="flow-arrow" style="transform: rotate(90deg); margin: 6px 0;">→</div>
+                <div class="flow-box" style="width: 75%; max-width: 380px;">企業組織落地</div>
             </div>
+        </div>
 
+    </div><!-- /.container -->
+
+    <!-- ── CTA Section ── -->
+    <div class="cta-section">
+        <div class="cta-inner">
+            <p class="cta-eyebrow">準備好了嗎？</p>
+            <h2 class="cta-title">讓 TPIsoftware 陪您完成<br>ChatGPT Enterprise 導入</h2>
+            <p class="cta-desc">從評估到上線，提供端對端的導入服務支援<br>讓 AI 真正在您的組織中生根落地</p>
+            <div class="cta-buttons">
+                <a href="https://www.tpisoftware.com/contact" target="_blank" class="btn-cta-primary">立即聯絡我們</a>
+                <a href="https://www.tpisoftware.com" target="_blank" class="btn-cta-secondary">了解更多服務</a>
+            </div>
         </div>
     </div>
 
+    <!-- ── Footer ── -->
     <footer>
-        <p class="tagline">Your AI Partner for Mission-Critical Success</p>
-        <p style="margin-top: 15px;">昕力資訊股份有限公司 © 2026 TPIsoftware. All rights reserved.</p>
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand-name">TPIsoftware</div>
+                <p class="footer-tagline">Your AI Partner for Mission-Critical Success</p>
+                <p class="footer-desc">
+                    昕力資訊股份有限公司<br>
+                    企業數位轉型軟體領導品牌<br>
+                    深耕 AI 解決方案超過 15 年
+                </p>
+            </div>
+            <div>
+                <p class="footer-col-title">服務項目</p>
+                <div class="footer-links">
+                    <a href="https://www.tpisoftware.com" target="_blank" class="footer-link">ChatGPT Enterprise 導入</a>
+                    <a href="https://www.tpisoftware.com" target="_blank" class="footer-link">AI 治理顧問</a>
+                    <a href="https://www.tpisoftware.com" target="_blank" class="footer-link">企業教育訓練</a>
+                    <a href="https://www.tpisoftware.com" target="_blank" class="footer-link">數位轉型諮詢</a>
+                </div>
+            </div>
+            <div>
+                <p class="footer-col-title">聯絡我們</p>
+                <div class="footer-links">
+                    <a href="https://www.tpisoftware.com/contact" target="_blank" class="footer-link">業務諮詢</a>
+                    <a href="https://www.tpisoftware.com" target="_blank" class="footer-link">官方網站</a>
+                    <a href="https://www.tpisoftware.com" target="_blank" class="footer-link">關於昕力資訊</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 TPIsoftware 昕力資訊股份有限公司. All rights reserved.</p>
+        </div>
     </footer>
+
 </body>
 </html>
