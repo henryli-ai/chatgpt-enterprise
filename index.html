@@ -117,6 +117,24 @@
             box-shadow: 0 4px 16px rgba(124,58,237,0.3);
         }
 
+        .lang-toggle {
+            background: transparent;
+            border: 1.5px solid var(--primary-light);
+            color: var(--primary-light);
+            padding: 7px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .lang-toggle:hover {
+            background: var(--primary-light);
+            color: white;
+        }
+
         /* ── Hero Section ── */
         .hero {
             background: white;
@@ -1419,12 +1437,11 @@
     <!-- ── Navbar ── -->
     <header>
         <div class="logo-section">
-            <img src="images/tpi-logo.png" alt="TPIsoftware"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'">
-            <span class="logo-text" style="display:none">TPIsoftware</span>
+            <img id="logo-zh" src="images/logo-zh.png" alt="昕力資訊" style="height:40px;">
+            <img id="logo-en" src="images/logo-en.png" alt="TPIsoftware" style="height:40px; display:none;">
         </div>
         <nav class="header-nav">
-            <a href="https://www.tpisoftware.com" target="_blank">關於 TPIsoftware</a>
+            <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language">EN</button>
             <a href="https://www.tpisoftware.com/contact" target="_blank" class="nav-cta">聯絡我們</a>
         </nav>
     </header>
@@ -2115,7 +2132,7 @@
         <div class="cta-inner">
             <p class="cta-eyebrow">準備好了嗎？</p>
             <h2 class="cta-title">讓 TPIsoftware 陪您完成<br>ChatGPT Enterprise 導入</h2>
-            <p class="cta-desc">從評估到上線，提供端對端的導入服務支援<br>讓 AI 真正協助您的組織飛躍成長</p>
+            <p class="cta-desc">從評估到上線，提供端到端的導入服務支援<br>讓 AI 真正協助您的組織飛躍成長</p>
             <div class="cta-buttons">
                 <a href="https://www.tpisoftware.com/contact" target="_blank" class="btn-cta-primary">立即聯絡我們</a>
                 <a href="https://www.tpisoftware.com" target="_blank" class="btn-cta-secondary">了解更多服務</a>
@@ -2156,5 +2173,544 @@
         </div>
     </footer>
 
+
+<script>
+(function () {
+  var isEn = false;
+
+  function applyLang(en) {
+    var secs     = document.querySelectorAll('.section');
+    var tags     = document.querySelectorAll('.section-tag');
+    var titles   = document.querySelectorAll('.section-title');
+    var qtexts   = document.querySelectorAll('.question-text');
+    var badges   = document.querySelectorAll('.trust-badge');
+    var kpoints  = document.querySelectorAll('.key-point');
+
+    /* ── logo ── */
+    document.getElementById('logo-zh').style.display = en ? 'none'  : '';
+    document.getElementById('logo-en').style.display = en ? ''      : 'none';
+
+    /* ── page meta ── */
+    document.title = en
+      ? 'ChatGPT Enterprise for Business | TPIsoftware'
+      : 'ChatGPT Enterprise 企業導入介紹｜TPIsoftware';
+    document.documentElement.lang = en ? 'en' : 'zh-TW';
+
+    /* ── hero ── */
+    document.querySelector('.hero-title').textContent = en
+      ? 'The Critical AI Decision for Your Enterprise'
+      : 'AI 世代的企業關鍵導入決策';
+
+    var badgeTexts = en
+      ? ['ChatGPT Enterprise Partner', 'Enterprise Onboarding Consulting', 'AI Strategy Solutions']
+      : ['ChatGPT 企業版窗口', '企業導入顧問服務', 'AI 策略解決方案'];
+    badges.forEach(function (b, i) { b.textContent = badgeTexts[i]; });
+
+    /* ── nav CTA ── */
+    document.querySelector('.nav-cta').textContent = en ? 'Contact Us' : '聯絡我們';
+
+    /* ── section tags ── */
+    var tagTexts = en
+      ? ['AI Trends', 'Product Overview', 'Version Comparison', 'Customer Trust',
+         'Competitive Positioning', 'Implementation Process', 'Phase 1', 'Phase 2',
+         'Phase 3', 'Talent Development', 'Cost Analysis', 'Application Process', 'Partner Services']
+      : ['AI 趨勢', '產品介紹', '版本比較', '客戶信任', '競品定位', '導入流程',
+         '階段一', '階段二', '階段三', '人才發展', '成本分析', '申請機制', '夥伴服務'];
+    tags.forEach(function (t, i) { t.textContent = tagTexts[i]; });
+
+    /* ── section titles ── */
+    var titleTexts = en
+      ? ['Why We Need to Formally Address AI Platforms',
+         'What Is ChatGPT Enterprise',
+         'How Is It Different from Regular ChatGPT',
+         'Trusted by Leaders and Teams Worldwide',
+         'How Does It Compare to Microsoft Copilot / Gemini',
+         'What Process Will Your Enterprise Go Through',
+         'Phase 1: What Happens in Governance Alignment',
+         'Phase 2: System Configuration & Account Activation',
+         'Phase 3: Consulting Deployment & Process Transformation',
+         'How to Collaborate with HR / Training Teams',
+         'Investment Scale & Actual Cost (150 Users)',
+         'The Reality of Applying for Enterprise',
+         "TPIsoftware's Role"]
+      : ['我們為什麼要正式討論 AI 平台',
+         '什麼是 ChatGPT Enterprise',
+         '跟一般 ChatGPT 有什麼差別',
+         '深獲各界領袖與團隊信賴',
+         '跟 Microsoft Copilot / Gemini 差在哪',
+         '導入後企業會經歷什麼流程',
+         '第一階段：治理對焦會做什麼',
+         '第二階段：系統設定與帳號開通',
+         '第三階段：顧問導入與流程改造',
+         '與 HR / 教育訓練單位如何合作',
+         '投資規模與實際成本（150 人）',
+         'Enterprise 的現實申請機制',
+         'TPIsoftware 的角色'];
+    titles.forEach(function (t, i) { t.textContent = titleTexts[i]; });
+
+    /* ── question boxes (12 total — section 4 has none) ── */
+    var questionTexts = en
+      ? ['"Do We Really Need Enterprise-Level AI Right Now?"',
+         '"What exactly is it? How is it different from what I use now?"',
+         '"Wouldn\'t Plus or Business be enough for us?"',
+         '"What scenarios should enterprises consider?"',
+         '"Will this be complicated?"',
+         '"What do we need to prepare?"',
+         '"Will technical integration be difficult?"',
+         '"How do we ensure it\'s actually used and not just purchased?"',
+         '"How do we get everyone to actually use it?"',
+         '"How much does it cost?"',
+         '"How do we apply?"',
+         'The Value We Provide']
+      : ['「我們現在真的需要 Enterprise 等級嗎？」',
+         '「它到底是什麼？跟我現在用的有什麼不同？」',
+         '「那我用 Plus 或 Business 不就好了？」',
+         '「企業考量的情境是什麼？」',
+         '「會不會很複雜？」',
+         '「我們要準備什麼？」',
+         '「技術整合會不會很難？」',
+         '「怎麼確保不是買來放著？」',
+         '「怎麼讓全員真的用？」',
+         '「多少錢？」',
+         '「我們怎麼申請？」',
+         '我們提供的價值'];
+    qtexts.forEach(function (q, i) { q.textContent = questionTexts[i]; });
+
+    /* ── key points (document order: s2 s5 s6 s7 s9 s10 s13) ── */
+    var keypointTexts = en
+      ? ["It's enterprise AI infrastructure — not a personal account upgrade.",
+         'Platform-Type vs. Integration-Type',
+         'Technology moves fast; what truly matters is governance and process.',
+         'This phase determines downstream risks and outcomes.',
+         'The key to successful adoption is workflow change, not tool proficiency.',
+         'This is a cultural transformation initiative.',
+         "We help enterprises not just acquire Enterprise — but successfully embed AI capabilities across the organization."]
+      : ['它是企業的 AI 基礎設施，不是個人帳號升級。',
+         '平台型 vs 整合型',
+         '技術很快，真正重要是治理與流程。',
+         '這階段決定後續風險與成效。',
+         '導入成功關鍵在於工作流程改變，而不是工具使用熟練度。',
+         '這是文化改變工程。',
+         '我們協助企業，不只是取得 Enterprise，<br>而是成功落地 AI 能力。'];
+    kpoints.forEach(function (k, i) { k.innerHTML = keypointTexts[i]; });
+
+    /* ════════════════════════════════════
+       SECTION 1 — AI Trends
+    ════════════════════════════════════ */
+    var s1 = secs[0];
+    var s1bullets = en
+      ? ['Employees are already widely using generative AI',
+         'Most organizations operate without any AI governance',
+         'AI has evolved from a productivity tool to a core organizational capability',
+         "The question is no longer whether to use AI, but how to adopt it formally"]
+      : ['員工已大量使用生成式 AI', '多數企業處於無治理狀態',
+         'AI 已從工具變成基礎能力', '問題不是要不要用，而是如何正式導入'];
+    s1.querySelectorAll('.bullet-list li').forEach(function (li, i) { li.textContent = s1bullets[i]; });
+
+    var s1flowTexts = en
+      ? ['Personal Use', 'Departmental Trial', 'Enterprise Governance<br><small>(Where You Are Now)</small>']
+      : ['個人使用', '部門嘗試', '企業級治理<br><small>（現在的位置）</small>'];
+    s1.querySelectorAll('.flow-box').forEach(function (f, i) { f.innerHTML = s1flowTexts[i]; });
+
+    /* ════════════════════════════════════
+       SECTION 2 — Product Overview
+    ════════════════════════════════════ */
+    var s2 = secs[1];
+    var s2bullets = en
+      ? ['Enterprise-grade AI work platform',
+         'Centralized account management',
+         'Robust data governance and control',
+         'Built for large-scale organizational deployment',
+         'Native API integration support']
+      : ['企業級 AI 工作平台', '可集中管理帳號', '可控管資料', '支援大規模使用', '支援 API 整合'];
+    s2.querySelectorAll('.bullet-list li').forEach(function (li, i) { li.textContent = s2bullets[i]; });
+
+    s2.querySelectorAll('h3')[0].textContent = en ? 'Platform Architecture:' : '平台架構圖：';
+
+    var s2flowTexts = en
+      ? ['Users', 'Management Layer', 'Security Layer', 'Model Layer']
+      : ['使用者', '管理層', '安全層', '模型層'];
+    s2.querySelectorAll('.flow-box').forEach(function (f, i) { f.textContent = s2flowTexts[i]; });
+
+    /* ════════════════════════════════════
+       SECTION 3 — Version Comparison
+    ════════════════════════════════════ */
+    var s3 = secs[2];
+    var s3h3 = s3.querySelectorAll('h3');
+    s3h3[0].textContent = en ? 'Version Comparison:' : '版本差異比較：';
+    s3h3[1].textContent = en ? 'Key Highlights:' : '重點強調：';
+
+    var s3thTexts = en ? ['Feature', 'Standard', 'Enterprise'] : ['項目', '一般版本', 'Enterprise'];
+    s3.querySelectorAll('th').forEach(function (th, i) { th.textContent = s3thTexts[i]; });
+
+    var s3strongTexts = en
+      ? ['Admin Controls', 'SSO', 'Token Limit', 'Usage Analytics', 'Vendor Support']
+      : ['管理控制', 'SSO', 'Token 上限', '使用分析', '原廠支援'];
+    s3.querySelectorAll('td strong').forEach(function (s, i) { s.textContent = s3strongTexts[i]; });
+
+    var s3rowData = en
+      ? [['No', 'Yes'], ['Limited', 'Full Support'], ['Restricted', 'Significantly Higher'], ['No', 'Yes'], ['No', 'Yes']]
+      : [['無', '有'], ['限制', '完整支援'], ['有限', '大幅提升'], ['無', '有'], ['無', '有']];
+    s3.querySelectorAll('tbody tr').forEach(function (row, i) {
+      var tds = row.querySelectorAll('td');
+      tds[1].textContent = s3rowData[i][0];
+      tds[2].textContent = s3rowData[i][1];
+    });
+
+    var s3bullets = en ? ['Governable', 'Scalable', 'Built for the long haul']
+                       : ['可治理', '可放大', '可長期經營'];
+    s3.querySelectorAll('.bullet-list li').forEach(function (li, i) { li.textContent = s3bullets[i]; });
+
+    /* ════════════════════════════════════
+       SECTION 4 — Customer Trust
+    ════════════════════════════════════ */
+    var s4 = secs[3];
+    var s4intro = s4.querySelector('p[style]');
+    if (s4intro) s4intro.textContent = en
+      ? 'Industry-leading enterprises worldwide have chosen ChatGPT Enterprise, spanning financial services, technology, healthcare, retail, and consulting.'
+      : '全球各產業龍頭企業已選擇 ChatGPT Enterprise，覆蓋金融、科技、醫療、零售、顧問等核心領域。';
+
+    var s4quote = s4.querySelector('.tg-quote');
+    if (s4quote) s4quote.textContent = en
+      ? '"The NPS score for ChatGPT Enterprise is off the charts — it\'s the most satisfying solution we have ever deployed company-wide."'
+      : '「ChatGPT Enterprise 的淨推薦分數高到嚇人，是我們全公司迄今最滿意的解決方案。」';
+
+    var s4role = s4.querySelector('.tg-author-role');
+    if (s4role) s4role.textContent = en ? 'Head of AI Products & Platform' : 'AI 產品與平台負責人';
+
+    var s4labelTexts = en
+      ? ['ChatGPT Enterprise<br>Active User Engagement Rate',
+         'Faster product insights from R&D',
+         'Improvement in AI application capability',
+         'Weekly active user growth rate for ChatGPT Enterprise',
+         'Of employees prefer ChatGPT Enterprise over any other AI tool']
+      : ['ChatGPT Enterprise<br>用戶使用活躍率',
+         '更快從研發取得產品洞察',
+         'AI 應用能力提升',
+         'ChatGPT Enterprise 每週活躍用戶成長速度',
+         '員工偏好 ChatGPT Enterprise 勝於其他 AI 工具'];
+    s4.querySelectorAll('.tg-stat-label').forEach(function (l, i) { l.innerHTML = s4labelTexts[i]; });
+
+    var s4source = s4.querySelector('.source-line');
+    if (s4source) {
+      var s4link = s4source.querySelector('a');
+      s4source.innerHTML = (en ? 'Source: ' : '資料來源：') + (s4link ? s4link.outerHTML : '');
+    }
+
+    /* ════════════════════════════════════
+       SECTION 5 — Competitive Positioning
+    ════════════════════════════════════ */
+    var s5 = secs[4];
+    var s5h3 = s5.querySelectorAll('h3');
+    s5h3[0].textContent = en ? 'Positioning Differences:' : '定位差異：';
+    s5h3[1].textContent = en ? 'Key Differentiators:' : '關鍵差異：';
+
+    var s5bullets = en
+      ? ['ChatGPT Enterprise = <span class="highlight-text">Standalone Model Platform</span>',
+         'Microsoft Copilot = <span class="highlight-text">Office-Integrated AI</span>',
+         'Gemini = <span class="highlight-text">Google Workspace Integration</span>']
+      : ['ChatGPT Enterprise = <span class="highlight-text">模型平台</span>',
+         'Microsoft Copilot = <span class="highlight-text">Office 整合型 AI</span>',
+         'Gemini = <span class="highlight-text">Google Workspace 整合</span>'];
+    s5.querySelectorAll('.bullet-list li').forEach(function (li, i) { li.innerHTML = s5bullets[i]; });
+
+    var s5cardData = en
+      ? [{title: 'Tied to an Office Ecosystem?',      text: 'ChatGPT Enterprise is a standalone platform — not locked into any specific office suite'},
+         {title: 'Build Custom Enterprise GPTs?',     text: 'Supports fully customized GPTs with proprietary knowledge bases for each team'},
+         {title: 'Cross-System Compatibility?',       text: 'Seamlessly integrates into any enterprise system or existing workflow'}]
+      : [{title: '是否綁定辦公生態系？',   text: 'ChatGPT Enterprise 為獨立平台，不綁定特定辦公軟體'},
+         {title: '是否可自建 GPT？',       text: '支援企業自訂 GPT，建立專屬知識庫'},
+         {title: '是否可跨系統使用？',     text: '可整合至各種企業系統與工作流程'}];
+    s5.querySelectorAll('.card').forEach(function (card, i) {
+      if (!s5cardData[i]) return;
+      card.querySelector('.card-title').textContent = s5cardData[i].title;
+      card.querySelector('p').textContent           = s5cardData[i].text;
+    });
+
+    /* ════════════════════════════════════
+       SECTION 6 — Implementation Process
+    ════════════════════════════════════ */
+    var s6 = secs[5];
+    s6.querySelector('h3').textContent = en ? 'Three Phases:' : '三階段：';
+
+    var s6timeData = en
+      ? [{h4: '① Governance Alignment  (1–2 Months)',
+          p:  'Define AI usage policies, classify sensitive data, and align organizational priorities'},
+         {h4: '② System Configuration & Account Activation',
+          p:  'Integrate SSO, configure the admin console, and activate role-based user permissions'},
+         {h4: '③ Consulting Deployment & Process Rollout  (1–2 Months)',
+          p:  'Redesign departmental workflows, build custom GPTs, and run hands-on enablement sessions'}]
+      : [{h4: '① 治理對焦（1–2 月）',
+          p:  '建立 AI 使用政策、定義敏感資料、對齊組織需求'},
+         {h4: '② 系統設定與帳號開通',
+          p:  '整合 SSO、設定管理控制台、開通使用者權限'},
+         {h4: '③ 顧問導入與流程落地（1–2 月）',
+          p:  '部門流程改造、建立專屬 GPT、實戰演練'}];
+    s6.querySelectorAll('.timeline-item').forEach(function (item, i) {
+      item.querySelector('h4').textContent = s6timeData[i].h4;
+      item.querySelector('p').textContent  = s6timeData[i].p;
+    });
+
+    var s6card = s6.querySelector('.card');
+    if (s6card) {
+      s6card.querySelector('.card-title').textContent = en ? 'Timeline' : '時間軸';
+      s6card.querySelector('p').innerHTML = en
+        ? '<strong>4–6 Month End-to-End Cycle</strong>'
+        : '<strong>4–6 個月完整週期</strong>';
+    }
+
+    /* ════════════════════════════════════
+       SECTION 7 — Phase 1: Governance
+    ════════════════════════════════════ */
+    var s7 = secs[6];
+    var s7bullets = en
+      ? ['Establish an AI acceptable-use policy',
+         'Define and classify sensitive and confidential data',
+         'Prioritize departments by readiness and impact',
+         'Align HR and IT stakeholders',
+         'Form an internal AI steering committee']
+      : ['AI 使用政策', '敏感資料定義', '部門優先順序', 'HR / IT 對齊', '成立內部推動小組'];
+    s7.querySelectorAll('.bullet-list li').forEach(function (li, i) { li.textContent = s7bullets[i]; });
+
+    var s7card = s7.querySelector('.card-emphasis');
+    if (s7card) {
+      s7card.querySelector('.card-title').textContent = en ? 'Governance Framework' : '治理框架';
+      var s7twoCol = s7card.querySelector('.two-column');
+      if (s7twoCol) {
+        var s7divs = s7twoCol.children;
+        s7divs[0].querySelector('strong').textContent = en ? 'Policy Level:' : '政策層面：';
+        var s7pliTexts = en ? ['AI acceptable-use guidelines', 'Data classification principles']
+                            : ['AI 使用規範', '資料分類原則'];
+        s7divs[0].querySelectorAll('li').forEach(function (li, i) { li.textContent = s7pliTexts[i]; });
+
+        s7divs[1].querySelector('strong').textContent = en ? 'Organizational Level:' : '組織層面：';
+        var s7oliTexts = en ? ['Steering committee formation', 'Cross-functional collaboration']
+                            : ['推動小組成立', '跨部門協作'];
+        s7divs[1].querySelectorAll('li').forEach(function (li, i) { li.textContent = s7oliTexts[i]; });
+      }
+    }
+
+    /* ════════════════════════════════════
+       SECTION 8 — Phase 2: System Setup
+    ════════════════════════════════════ */
+    var s8 = secs[7];
+    var s8bullets = en
+      ? ['SSO Integration', 'Admin Console Configuration', 'Role-Based Permission Tiering', 'Usage Monitoring & Reporting']
+      : ['SSO 整合', 'Admin Console 設定', '權限分級', '使用監控'];
+    s8.querySelectorAll('.bullet-list li').forEach(function (li, i) { li.textContent = s8bullets[i]; });
+
+    var s8card = s8.querySelector('.card-success');
+    if (s8card) {
+      s8card.querySelector('.card-title').textContent = en ? 'Timeline:' : '時間：';
+      s8card.querySelector('p').innerHTML = en
+        ? 'Typically completed within <strong>1–2 weeks</strong>'
+        : '通常 <strong>1–2 週</strong>內完成';
+    }
+
+    s8.querySelector('h3').textContent = en ? 'System Integration Diagram:' : '系統整合示意圖：';
+
+    var s8flowTexts = en
+      ? ['Enterprise IT Systems', 'SSO Integration', 'ChatGPT Platform']
+      : ['企業 IT 系統', 'SSO 整合', 'ChatGPT 平台'];
+    s8.querySelectorAll('.flow-box').forEach(function (f, i) { f.textContent = s8flowTexts[i]; });
+
+    /* ════════════════════════════════════
+       SECTION 9 — Phase 3: Deployment
+    ════════════════════════════════════ */
+    var s9 = secs[8];
+    var s9bullets = en
+      ? ['Deconstruct and map existing departmental workflows',
+         'Optimize high-frequency, repetitive work scenarios',
+         'Build department-specific custom GPTs',
+         'Executive and manager enablement workshops',
+         'Hands-on team practice sessions']
+      : ['部門流程拆解', '高頻工作場景優化', '建立部門 GPT', '主管工作坊', '實戰演練'];
+    s9.querySelectorAll('.bullet-list li').forEach(function (li, i) { li.textContent = s9bullets[i]; });
+
+    var s9baLabels = s9.querySelectorAll('.ba-label');
+    if (s9baLabels[0]) s9baLabels[0].innerHTML = '<span class="ba-icon">✕</span>' + (en ? ' Before' : ' 導入前');
+    if (s9baLabels[1]) s9baLabels[1].innerHTML = '<span class="ba-icon">✓</span>' + (en ? ' After'  : ' 導入後');
+
+    var s9baLists   = s9.querySelectorAll('.ba-list');
+    var s9beforeTxts = en ? ['Manual, repetitive work', 'Information scattered across silos', 'Slow and cumbersome processes']
+                          : ['手動重複性工作', '資訊分散', '流程冗長'];
+    var s9afterTxts  = en ? ['AI-assisted workflow automation', 'Unified knowledge base integration', 'Streamlined and optimized processes']
+                          : ['AI 協作自動化', '知識庫整合', '流程優化'];
+    if (s9baLists[0]) s9baLists[0].querySelectorAll('li').forEach(function (li, i) { li.textContent = s9beforeTxts[i]; });
+    if (s9baLists[1]) s9baLists[1].querySelectorAll('li').forEach(function (li, i) { li.textContent = s9afterTxts[i]; });
+
+    /* ════════════════════════════════════
+       SECTION 10 — Talent Development
+    ════════════════════════════════════ */
+    var s10 = secs[9];
+    var s10bullets = en
+      ? ['Embed AI literacy into new-hire onboarding',
+         'Incorporate AI fluency into manager development programs',
+         'Cultivate internal AI champions and seed coaches',
+         'Design a formal internal AI certification pathway']
+      : ['納入新人訓練', '納入主管培訓', '建立 AI 種子教練', '設計內部認證制度'];
+    s10.querySelectorAll('.bullet-list li').forEach(function (li, i) { li.textContent = s10bullets[i]; });
+
+    var s10card = s10.querySelector('.card-info');
+    if (s10card) {
+      s10card.querySelector('.card-title').textContent = en ? 'HR Integration Flow' : 'HR 整合流程';
+      var s10flowTexts = en
+        ? ['New-Hire Onboarding', 'Manager Training', 'Seed Coaches', 'Certification']
+        : ['新人訓練', '主管培訓', '種子教練', '內部認證'];
+      s10card.querySelectorAll('.flow-box').forEach(function (f, i) { f.textContent = s10flowTexts[i]; });
+    }
+
+    /* ════════════════════════════════════
+       SECTION 11 — Cost Analysis
+    ════════════════════════════════════ */
+    var s11 = secs[10];
+    var s11h3 = s11.querySelectorAll('h3');
+    s11h3[0].textContent = en ? 'Assumptions:' : '假設：';
+    s11h3[1].textContent = en ? 'Key Advantages:' : '重點強調：';
+
+    var s11bls = s11.querySelectorAll('.bullet-list');
+    var s11assumBullets = en
+      ? ['150 users', '$40 USD / user / month', 'Annual cost approx. <strong>$72,000 USD</strong>']
+      : ['150 人', '$40 USD / 月', '年費約 <strong>72,000 USD</strong>'];
+    if (s11bls[0]) s11bls[0].querySelectorAll('li').forEach(function (li, i) { li.innerHTML = s11assumBullets[i]; });
+
+    var s11keyBullets = en
+      ? ['One unified platform for the entire organization',
+         'Eliminate fragmented, overlapping tool subscriptions',
+         'Zero hardware or infrastructure costs',
+         'Continuous model upgrades at no additional charge']
+      : ['統一平台', '不再零散投資', '無硬體成本', '持續模型升級'];
+    if (s11bls[1]) s11bls[1].querySelectorAll('li').forEach(function (li, i) { li.textContent = s11keyBullets[i]; });
+
+    var s11cards = s11.querySelectorAll('.card');
+    /* s11cards[0] = card-emphasis (no title), [1] = card-warning, [2] = card-success */
+    if (s11cards[1]) {
+      s11cards[1].querySelector('.card-title').textContent = en ? 'Fragmented Tool Costs' : '零散工具成本';
+      var s11fragTexts = en
+        ? ['Multiple siloed AI subscriptions', 'No integration or centralized control', 'Difficult to govern or audit', 'Redundant and wasteful spending']
+        : ['各式 AI 訂閱', '缺乏整合', '難以管理', '重複投資'];
+      s11cards[1].querySelectorAll('li').forEach(function (li, i) { li.textContent = s11fragTexts[i]; });
+    }
+    if (s11cards[2]) {
+      s11cards[2].querySelector('.card-title').textContent = en ? 'Unified Platform Cost' : '統一平台成本';
+      var s11unifTexts = en
+        ? ['Single enterprise subscription', 'Centralized governance and management', 'Economies of scale', 'Compounding long-term ROI']
+        : ['單一訂閱', '集中管理', '規模經濟', '長期效益'];
+      s11cards[2].querySelectorAll('li').forEach(function (li, i) { li.textContent = s11unifTexts[i]; });
+    }
+
+    /* ════════════════════════════════════
+       SECTION 12 — Application Process
+    ════════════════════════════════════ */
+    var s12 = secs[11];
+    var s12h3 = s12.querySelectorAll('h3');
+    s12h3[0].textContent = en ? 'Key Facts:' : '重點說明：';
+    s12h3[1].textContent = en ? 'Risks of Going It Alone:' : '企業自行嘗試的風險：';
+
+    var s12bls = s12.querySelectorAll('.bullet-list');
+    var s12keyBullets = en
+      ? ['No public self-service application portal',
+         'Access typically requires meeting a minimum usage threshold',
+         'OpenAI proactively reaches out to qualified organizations']
+      : ['無公開申請入口', '通常需達一定用量', '原廠主動通知'];
+    if (s12bls[0]) s12bls[0].querySelectorAll('li').forEach(function (li, i) { li.textContent = s12keyBullets[i]; });
+
+    var s12riskBullets = en
+      ? ['Highly uncertain timeline', 'No dedicated point of contact', 'No structured onboarding resources']
+      : ['時間不確定', '無對接窗口', '無導入資源'];
+    if (s12bls[1]) s12bls[1].querySelectorAll('li').forEach(function (li, i) { li.textContent = s12riskBullets[i]; });
+
+    var s12twoColCards = s12.querySelectorAll('.two-column .card');
+    if (s12twoColCards[0]) {
+      s12twoColCards[0].querySelector('.card-title').textContent = en ? '❌ Going It Alone' : '❌ 自行摸索';
+      var s12aloneTexts = en
+        ? ['High uncertainty and prolonged wait times', 'No access to vendor support', 'Steep and unsupported adoption curve']
+        : ['不確定性高', '缺乏支援', '導入困難'];
+      s12twoColCards[0].querySelectorAll('li').forEach(function (li, i) { li.textContent = s12aloneTexts[i]; });
+    }
+    if (s12twoColCards[1]) {
+      s12twoColCards[1].querySelector('.card-title').textContent = en ? '✓ Via TPIsoftware' : '✓ 經 TPI 對接';
+      var s12tpiTexts = en
+        ? ['Expedited fast-track access', 'Dedicated professional support', 'Structured, proven deployment path']
+        : ['快速通道', '專業支援', '成功落地'];
+      s12twoColCards[1].querySelectorAll('li').forEach(function (li, i) { li.textContent = s12tpiTexts[i]; });
+    }
+
+    /* ════════════════════════════════════
+       SECTION 13 — TPIsoftware's Role
+    ════════════════════════════════════ */
+    var s13 = secs[12];
+    var s13bullets = en
+      ? ['Authorized OpenAI reseller and direct vendor contact',
+         'Application facilitation and eligibility assessment',
+         'AI governance framework design',
+         'End-to-end implementation consulting',
+         'HR and corporate training integration',
+         'Long-term performance optimization and ROI tracking']
+      : ['原廠對接窗口', '協助申請與資格評估', '治理設計顧問', '導入顧問服務', 'HR 教育訓練整合', '長期成效優化'];
+    s13.querySelectorAll('.bullet-list li').forEach(function (li, i) { li.textContent = s13bullets[i]; });
+
+    s13.querySelector('h3').textContent = en ? 'Three-Tier Engagement Model:' : '三層角色圖：';
+
+    var s13flowTexts = en
+      ? ['OpenAI (Vendor)', 'TPIsoftware (Consulting Bridge)', 'Your Enterprise (Successful Deployment)']
+      : ['OpenAI 原廠', 'TPI 顧問橋接', '企業組織落地'];
+    s13.querySelectorAll('.flow-box').forEach(function (f, i) { f.textContent = s13flowTexts[i]; });
+
+    /* ════════════════════════════════════
+       CTA SECTION
+    ════════════════════════════════════ */
+    var ctaEyebrow = document.querySelector('.cta-eyebrow');
+    if (ctaEyebrow) ctaEyebrow.textContent = en ? 'Ready to Take the Next Step?' : '準備好了嗎？';
+
+    var ctaTitle = document.querySelector('.cta-title');
+    if (ctaTitle) ctaTitle.innerHTML = en
+      ? 'Let TPIsoftware Guide Your<br>ChatGPT Enterprise Journey'
+      : '讓 TPIsoftware 陪您完成<br>ChatGPT Enterprise 導入';
+
+    var ctaDesc = document.querySelector('.cta-desc');
+    if (ctaDesc) ctaDesc.innerHTML = en
+      ? 'From strategic assessment to full go-live, we deliver end-to-end implementation support<br>— empowering your organization to grow with AI at its core.'
+      : '從評估到上線，提供端到端的導入服務支援<br>讓 AI 真正協助您的組織飛躍成長';
+
+    var ctaBtns = document.querySelectorAll('.cta-buttons a');
+    if (ctaBtns[0]) ctaBtns[0].textContent = en ? 'Get in Touch' : '立即聯絡我們';
+    if (ctaBtns[1]) ctaBtns[1].textContent = en ? 'Learn More'   : '了解更多服務';
+
+    /* ════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════ */
+    var ftDesc = document.querySelector('.footer-desc');
+    if (ftDesc) ftDesc.textContent = en
+      ? 'Your Trusted Partner for Enterprise AI Transformation'
+      : '企業 AI 轉型最佳夥伴';
+
+    var ftColTitles    = document.querySelectorAll('.footer-col-title');
+    var ftColTitleTxts = en ? ['Our Services', 'Contact Us'] : ['服務項目', '聯絡我們'];
+    ftColTitles.forEach(function (t, i) { t.textContent = ftColTitleTxts[i]; });
+
+    var ftLinks    = document.querySelectorAll('.footer-link');
+    var ftLinkTxts = en
+      ? ['ChatGPT Enterprise Onboarding', 'AI Governance Consulting',
+         'Corporate Training & Enablement', 'Digital Transformation Advisory',
+         'Business Inquiry', 'Official Website', 'About TPIsoftware']
+      : ['ChatGPT Enterprise 導入', 'AI 治理顧問',
+         '企業教育訓練', '數位轉型諮詢',
+         '業務諮詢', '官方網站', '關於昕力資訊'];
+    ftLinks.forEach(function (l, i) { l.textContent = ftLinkTxts[i]; });
+
+    var ftBottom = document.querySelector('.footer-bottom p');
+    if (ftBottom) ftBottom.textContent = en
+      ? '© 2026 TPIsoftware Corporation. All rights reserved.'
+      : '© 2026 TPIsoftware 昕力資訊股份有限公司. All rights reserved.';
+  }
+
+  window.toggleLang = function () {
+    isEn = !isEn;
+    applyLang(isEn);
+    document.querySelector('.lang-toggle').textContent = isEn ? '中文' : 'EN';
+  };
+}());
+</script>
 </body>
 </html>
